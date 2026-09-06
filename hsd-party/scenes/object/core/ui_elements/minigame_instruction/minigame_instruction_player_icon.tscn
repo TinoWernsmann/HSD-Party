@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://phhyoryoq8c2"]
+
+[ext_resource type="Texture2D" uid="uid://b2ilrjpryh85y" path="res://icon.svg" id="1_ov300"]
+[ext_resource type="Script" uid="uid://3bopr1wcklpk" path="res://scripts/core/controller/minigame_instruction_player_info_controller.gd" id="2_1ftak"]
+
+[sub_resource type="FontVariation" id="FontVariation_n4fmw"]
+variation_embolden = 1.54
+
+[node name="MinigameInstructionPlayerIcon" type="TextureRect" node_paths=PackedStringArray("player_icon_rect", "ready_label", "not_ready_label")]
+custom_minimum_size = Vector2(100, 100)
+texture = ExtResource("1_ov300")
+expand_mode = 3
+script = ExtResource("2_1ftak")
+player_icon_rect = NodePath(".")
+ready_label = NodePath("Ready")
+not_ready_label = NodePath("NotReady")
+
+[node name="NotReady" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.26703537
+pivot_offset = Vector2(50, 50)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_n4fmw")
+theme_override_font_sizes/font_size = 18
+text = "Nicht Bereit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ready" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.08726646
+pivot_offset = Vector2(50, 50)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_n4fmw")
+theme_override_font_sizes/font_size = 25
+text = "Bereit"
+horizontal_alignment = 1
+vertical_alignment = 1

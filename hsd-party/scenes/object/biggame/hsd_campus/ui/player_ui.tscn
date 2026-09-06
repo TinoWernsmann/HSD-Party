@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1gxqm1eyuxp1"]
+
+[ext_resource type="Script" uid="uid://jt2injuhu6ci" path="res://scripts/biggame/hsd_campus/manager/player_ui.gd" id="1_1hcif"]
+
+[node name="player_ui" type="CanvasLayer" node_paths=PackedStringArray("coins_label", "stars_label")]
+script = ExtResource("1_1hcif")
+coins_label = NodePath("MarginContainer/VBoxContainer/Coins")
+stars_label = NodePath("MarginContainer/VBoxContainer/Stars")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Player" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spieler:"
+
+[node name="Coins" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credit Points:"
+
+[node name="Stars" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Abschlüsse:"

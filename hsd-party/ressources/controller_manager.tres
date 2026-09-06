@@ -1,0 +1,223 @@
+[gd_resource type="Resource" script_class="ControllerManager" load_steps=51 format=3 uid="uid://c8f14gemwoaa7"]
+
+[ext_resource type="Script" uid="uid://drrdk258o42s" path="res://scripts/core/controller_manager.gd" id="1_ijh88"]
+[ext_resource type="Script" uid="uid://dmc6fxkrkq7xe" path="res://scripts/core/controller_definition.gd" id="1_yg6cb"]
+[ext_resource type="Texture2D" uid="uid://bfk75hptaua2o" path="res://assets/sprites/ui/keys/AD.png" id="2_67hmf"]
+[ext_resource type="Script" uid="uid://3q2pyfyhxv8k" path="res://scripts/core/axis_input.gd" id="2_gwiov"]
+[ext_resource type="Texture2D" uid="uid://b06g2vms83pvf" path="res://assets/sprites/ui/arrows.png" id="2_iewpm"]
+[ext_resource type="Script" uid="uid://cwnffggx2d62i" path="res://scripts/core/button_input.gd" id="3_iewpm"]
+[ext_resource type="Texture2D" uid="uid://drfxh6125tqjs" path="res://assets/sprites/ui/controller.png" id="3_pw2ta"]
+[ext_resource type="Texture2D" uid="uid://brw0aja68hds6" path="res://assets/sprites/ui/keys/WS.png" id="4_6wyy8"]
+[ext_resource type="Texture2D" uid="uid://brna2c3ljf01l" path="res://assets/sprites/ui/wasd.png" id="4_auvfu"]
+[ext_resource type="Texture2D" uid="uid://dga05tdyxq7ds" path="res://assets/sprites/ui/keys/mouse_left.png" id="5_kf7jp"]
+[ext_resource type="Texture2D" uid="uid://bcem3guj8tn0u" path="res://assets/sprites/ui/keys/mouse_right.png" id="7_caffi"]
+[ext_resource type="Texture2D" uid="uid://b1kmxcxhjavsx" path="res://assets/sprites/ui/keys/Space.png" id="8_3kfvv"]
+[ext_resource type="Texture2D" uid="uid://dc1ewarpcl4yl" path="res://assets/sprites/ui/keys/Q.png" id="9_cov7g"]
+[ext_resource type="Texture2D" uid="uid://h2m7bl4rsujk" path="res://assets/sprites/ui/keys/Esc.png" id="10_is3f3"]
+[ext_resource type="Texture2D" uid="uid://drsjw3y874hkc" path="res://assets/sprites/ui/keys/Tab.png" id="11_83ehw"]
+[ext_resource type="Texture2D" uid="uid://bb62u2kjmx8vr" path="res://assets/sprites/ui/keys/ArrowLeftRight.png" id="13_73psf"]
+[ext_resource type="Texture2D" uid="uid://lnyesgspw8lq" path="res://assets/sprites/ui/keys/ArrowUpDown.png" id="14_alb84"]
+[ext_resource type="Texture2D" uid="uid://bhb5104pphsag" path="res://assets/sprites/ui/keys/-.png" id="15_ujoc2"]
+[ext_resource type="Texture2D" uid="uid://b8crwvvyoqsyx" path="res://assets/sprites/ui/keys/Dot.png" id="16_3yohk"]
+[ext_resource type="Texture2D" uid="uid://dashcpxkyrqc" path="res://assets/sprites/ui/keys/comma.png" id="17_v2qhq"]
+[ext_resource type="Texture2D" uid="uid://blamcir3lymgp" path="res://assets/sprites/ui/keys/Strg.png" id="18_bna6q"]
+[ext_resource type="Texture2D" uid="uid://bytsufd4lgvx0" path="res://assets/sprites/ui/keys/P.png" id="19_ufanj"]
+[ext_resource type="Texture2D" uid="uid://3skwn6s7a738" path="res://assets/sprites/ui/keys/I.png" id="20_aflpg"]
+
+[sub_resource type="Resource" id="Resource_iewpm"]
+script = ExtResource("2_gwiov")
+pos = "D"
+neg = "A"
+icon = ExtResource("2_67hmf")
+metadata/_custom_type_script = "uid://3q2pyfyhxv8k"
+
+[sub_resource type="Resource" id="Resource_pw2ta"]
+script = ExtResource("2_gwiov")
+pos = "S"
+neg = "W"
+icon = ExtResource("4_6wyy8")
+metadata/_custom_type_script = "uid://3q2pyfyhxv8k"
+
+[sub_resource type="Resource" id="Resource_auvfu"]
+script = ExtResource("3_iewpm")
+action = "mouse_left"
+icon = ExtResource("5_kf7jp")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_lru0f"]
+script = ExtResource("3_iewpm")
+action = "mouse_right"
+icon = ExtResource("7_caffi")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_hw4u3"]
+script = ExtResource("3_iewpm")
+action = "space"
+icon = ExtResource("8_3kfvv")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_x1ba5"]
+script = ExtResource("3_iewpm")
+action = "Q"
+icon = ExtResource("9_cov7g")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_id3xb"]
+script = ExtResource("3_iewpm")
+action = "escape"
+icon = ExtResource("10_is3f3")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_kgfe6"]
+script = ExtResource("3_iewpm")
+action = "tab"
+icon = ExtResource("11_83ehw")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_4i17p"]
+script = ExtResource("1_yg6cb")
+icon = ExtResource("4_auvfu")
+button_inputs = Dictionary[int, Object]({
+0: SubResource("Resource_auvfu"),
+1: SubResource("Resource_lru0f"),
+2: SubResource("Resource_hw4u3"),
+3: SubResource("Resource_x1ba5"),
+4: SubResource("Resource_id3xb"),
+5: SubResource("Resource_kgfe6")
+})
+axis_inputs = Dictionary[int, Object]({
+0: SubResource("Resource_iewpm"),
+1: SubResource("Resource_pw2ta")
+})
+metadata/_custom_type_script = "uid://dmc6fxkrkq7xe"
+
+[sub_resource type="Resource" id="Resource_6sxe7"]
+script = ExtResource("2_gwiov")
+pos = "right"
+neg = "left"
+icon = ExtResource("13_73psf")
+metadata/_custom_type_script = "uid://3q2pyfyhxv8k"
+
+[sub_resource type="Resource" id="Resource_dvxuj"]
+script = ExtResource("2_gwiov")
+pos = "down"
+neg = "up"
+icon = ExtResource("14_alb84")
+metadata/_custom_type_script = "uid://3q2pyfyhxv8k"
+
+[sub_resource type="Resource" id="Resource_uak11"]
+script = ExtResource("3_iewpm")
+action = "minus"
+icon = ExtResource("15_ujoc2")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_d7svb"]
+script = ExtResource("3_iewpm")
+action = "dot"
+icon = ExtResource("16_3yohk")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_rjye3"]
+script = ExtResource("3_iewpm")
+action = "comma"
+icon = ExtResource("17_v2qhq")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_5ho61"]
+script = ExtResource("3_iewpm")
+action = "ctrl"
+icon = ExtResource("18_bna6q")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_fgfuc"]
+script = ExtResource("3_iewpm")
+action = "P"
+icon = ExtResource("19_ufanj")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_32xwu"]
+script = ExtResource("3_iewpm")
+action = "I"
+icon = ExtResource("20_aflpg")
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_ee4je"]
+script = ExtResource("1_yg6cb")
+icon = ExtResource("2_iewpm")
+button_inputs = Dictionary[int, Object]({
+0: SubResource("Resource_uak11"),
+1: SubResource("Resource_d7svb"),
+2: SubResource("Resource_rjye3"),
+3: SubResource("Resource_5ho61"),
+4: SubResource("Resource_fgfuc"),
+5: SubResource("Resource_32xwu")
+})
+axis_inputs = Dictionary[int, Object]({
+0: SubResource("Resource_6sxe7"),
+1: SubResource("Resource_dvxuj")
+})
+metadata/_custom_type_script = "uid://dmc6fxkrkq7xe"
+
+[sub_resource type="Resource" id="Resource_67hmf"]
+script = ExtResource("2_gwiov")
+pos = "joy0_right"
+neg = "joy0_left"
+metadata/_custom_type_script = "uid://3q2pyfyhxv8k"
+
+[sub_resource type="Resource" id="Resource_6wyy8"]
+script = ExtResource("2_gwiov")
+pos = "joy0_up"
+neg = "joy0_down"
+metadata/_custom_type_script = "uid://3q2pyfyhxv8k"
+
+[sub_resource type="Resource" id="Resource_kf7jp"]
+script = ExtResource("3_iewpm")
+action = "joy0_1"
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_caffi"]
+script = ExtResource("3_iewpm")
+action = "joy0_2"
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_3kfvv"]
+script = ExtResource("3_iewpm")
+action = "joy0_3"
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_cov7g"]
+script = ExtResource("3_iewpm")
+action = "joy0_4"
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_is3f3"]
+script = ExtResource("3_iewpm")
+action = "joy0_pause"
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_83ehw"]
+script = ExtResource("3_iewpm")
+action = "joy0_menu"
+metadata/_custom_type_script = "uid://cwnffggx2d62i"
+
+[sub_resource type="Resource" id="Resource_73psf"]
+script = ExtResource("1_yg6cb")
+icon = ExtResource("3_pw2ta")
+button_inputs = Dictionary[int, Object]({
+0: SubResource("Resource_kf7jp"),
+1: SubResource("Resource_caffi"),
+2: SubResource("Resource_3kfvv"),
+3: SubResource("Resource_cov7g"),
+4: SubResource("Resource_is3f3"),
+5: SubResource("Resource_83ehw")
+})
+axis_inputs = Dictionary[int, Object]({
+0: SubResource("Resource_67hmf"),
+1: SubResource("Resource_6wyy8")
+})
+metadata/_custom_type_script = "uid://dmc6fxkrkq7xe"
+
+[resource]
+script = ExtResource("1_ijh88")
+controller_definitions = Array[ExtResource("1_yg6cb")]([SubResource("Resource_4i17p"), SubResource("Resource_ee4je"), SubResource("Resource_73psf")])
+metadata/_custom_type_script = "uid://drrdk258o42s"

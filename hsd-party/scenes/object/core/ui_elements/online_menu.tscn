@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy3rmti8kgxa3"]
+
+[ext_resource type="Script" uid="uid://cawub3cev0fc6" path="res://scripts/core/controller/online_menu_controller.gd" id="1_nt12r"]
+[ext_resource type="Texture2D" uid="uid://d3sm84tygdajg" path="res://assets/sprites/ui/menu/menuScreen.png" id="2_s5817"]
+[ext_resource type="Shader" uid="uid://b1n6toajjg3j4" path="res://ressources/shader/shared/blur_shader.gdshader" id="3_kgkea"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7l16"]
+shader = ExtResource("3_kgkea")
+shader_parameter/amount = 1.0000000475
+
+[node name="OnlineMenu" type="Control" node_paths=PackedStringArray("room_id_input", "host_button", "join_button", "info_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nt12r")
+room_id_input = NodePath("OnlineScreen/LineEdit")
+host_button = NodePath("OnlineScreen/StartGameAsHost")
+join_button = NodePath("OnlineScreen/JoinGame")
+info_label = NodePath("OnlineScreen/Label")
+metadata/_edit_vertical_guides_ = [2709.0]
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s5817")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_p7l16")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OnlineScreen" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.5
+offset_top = -51.0
+offset_right = 85.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGameAsHost" type="Button" parent="OnlineScreen"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Spiel als Host starten"
+
+[node name="Spacer2" type="Control" parent="OnlineScreen"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="OnlineScreen"]
+layout_mode = 2
+
+[node name="JoinGame" type="Button" parent="OnlineScreen"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Spiel beitreten"
+
+[node name="Label" type="Label" parent="OnlineScreen"]
+layout_mode = 2
+text = "Verbindungsaufbau..."
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="OnlineScreen"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="OnlineScreen"]
+layout_mode = 2
+text = "Zurück"
+
+[connection signal="pressed" from="OnlineScreen/StartGameAsHost" to="." method="_on_start_game_as_host_pressed"]
+[connection signal="pressed" from="OnlineScreen/JoinGame" to="." method="_on_join_game_pressed"]
+[connection signal="pressed" from="OnlineScreen/Back" to="." method="_on_back_pressed"]

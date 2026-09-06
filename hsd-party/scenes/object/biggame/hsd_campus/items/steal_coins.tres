@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bjhmt0j4jldmr"]
+
+[ext_resource type="Script" uid="uid://cshctyika70kb" path="res://scripts/biggame/hsd_campus/items/items.gd" id="1_fo4wc"]
+[ext_resource type="Texture2D" uid="uid://rcojyjf7t33u" path="res://assets/sprites/biggame/hsd_campus/items/Mensa card.png" id="1_nxq6p"]
+
+[resource]
+script = ExtResource("1_fo4wc")
+type = 3
+amount = 10
+shop_price = 5
+item_name = "Mensa Card"
+icon = ExtResource("1_nxq6p")
+description = "Die Mensa Card kann jetzt auch Geld anderer Kommilitonen stehlen. Probier es aus! Stehle Münzen eines anderen Spielers."
+metadata/_custom_type_script = "uid://cshctyika70kb"

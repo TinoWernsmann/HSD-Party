@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://bt3djs6slnuoc"]
+
+[ext_resource type="Texture2D" uid="uid://dggxj1lfn8t5j" path="res://assets/sprites/minigame/pong/centerline.png" id="1_1jev3"]
+[ext_resource type="Script" uid="uid://brussnlselw4q" path="res://scripts/minigame/pong/playground.gd" id="1_h38n7"]
+[ext_resource type="Texture2D" uid="uid://dgwm1v46ut20s" path="res://assets/sprites/minigame/pong/background.png" id="1_my0f1"]
+[ext_resource type="Texture2D" uid="uid://11ypq66hxi3h" path="res://assets/sprites/minigame/pong/borderlines.png" id="2_my0f1"]
+[ext_resource type="PackedScene" uid="uid://1mtyf7skpeat" path="res://scenes/object/minigame/pong/player.tscn" id="3_h38n7"]
+[ext_resource type="PackedScene" uid="uid://cdtqsa8anp7m4" path="res://scenes/object/minigame/pong/goal.tscn" id="3_m7tyu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ie5b"]
+size = Vector2(1622.0339, 24.915283)
+
+[node name="2PlayerPlayground" type="Node2D" node_paths=PackedStringArray("player", "goals", "gamefield_center")]
+script = ExtResource("1_h38n7")
+player = [NodePath("GamefieldCenter/PlayerOffset2/Player2"), NodePath("GamefieldCenter/PayerOffset1/Player1")]
+goals = [NodePath("GamefieldCenter/Goal2"), NodePath("GamefieldCenter/Goal1")]
+gamefield_center = NodePath("GamefieldCenter")
+
+[node name="Background2" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(3.7499998, 2.109375)
+texture = ExtResource("1_my0f1")
+
+[node name="GamefieldCenter" type="Node2D" parent="."]
+position = Vector2(0, 65)
+scale = Vector2(1.18, 1.18)
+
+[node name="Goal1" parent="GamefieldCenter" instance=ExtResource("3_m7tyu")]
+position = Vector2(800, 0)
+rotation = 1.5707964
+scale = Vector2(1.5, 1)
+
+[node name="Goal2" parent="GamefieldCenter" instance=ExtResource("3_m7tyu")]
+position = Vector2(-800, 0)
+rotation = -1.5707964
+scale = Vector2(1.5, 1)
+
+[node name="Lines" type="Node2D" parent="GamefieldCenter"]
+
+[node name="CenterLine3" type="Sprite2D" parent="GamefieldCenter/Lines"]
+position = Vector2(0, -199.99998)
+scale = Vector2(0.39999998, 0.79999995)
+texture = ExtResource("1_1jev3")
+
+[node name="CenterLine4" type="Sprite2D" parent="GamefieldCenter/Lines"]
+position = Vector2(-3.0199162e-05, 200)
+rotation = -3.1415925
+scale = Vector2(0.39999998, 0.79999995)
+texture = ExtResource("1_1jev3")
+
+[node name="Border" type="Node2D" parent="GamefieldCenter"]
+
+[node name="Border1" type="Sprite2D" parent="GamefieldCenter/Border"]
+position = Vector2(0, -385)
+rotation = 1.5707964
+scale = Vector2(0.8, 3.173)
+texture = ExtResource("2_my0f1")
+
+[node name="Border2" type="Sprite2D" parent="GamefieldCenter/Border"]
+position = Vector2(-5.8133384e-05, 385)
+rotation = -1.5707961
+scale = Vector2(0.79999995, 3.173)
+texture = ExtResource("2_my0f1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GamefieldCenter/Border"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamefieldCenter/Border/StaticBody2D"]
+position = Vector2(0, -385)
+shape = SubResource("RectangleShape2D_8ie5b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GamefieldCenter/Border/StaticBody2D"]
+position = Vector2(0, 385)
+shape = SubResource("RectangleShape2D_8ie5b")
+
+[node name="PayerOffset1" type="Node2D" parent="GamefieldCenter"]
+position = Vector2(699.99994, 0)
+
+[node name="Player1" parent="GamefieldCenter/PayerOffset1" instance=ExtResource("3_h38n7")]
+
+[node name="PlayerOffset2" type="Node2D" parent="GamefieldCenter"]
+position = Vector2(-699.99994, 0)
+rotation = -3.1415925
+
+[node name="Player2" parent="GamefieldCenter/PlayerOffset2" instance=ExtResource("3_h38n7")]

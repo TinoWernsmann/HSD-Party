@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://w8qup2kdy3iq"]
+
+[ext_resource type="Texture2D" uid="uid://b3hgm1jk7agh1" path="res://assets/sprites/character_icons/player_blue.png" id="1_4tng7"]
+[ext_resource type="Script" uid="uid://u3pmmukxf3t5" path="res://scripts/minigame/pong/score_info_controller.gd" id="1_g81gi"]
+
+[node name="ScoreInfo" type="PanelContainer" node_paths=PackedStringArray("score_label", "avate_rect", "panel_container")]
+theme_type_variation = &"PlayerInfoIngameScore"
+script = ExtResource("1_g81gi")
+score_label = NodePath("MarginContainer/HBoxContainer/Label")
+avate_rect = NodePath("MarginContainer/HBoxContainer/Avatar")
+panel_container = NodePath(".")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Avatar" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_4tng7")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "0"
+horizontal_alignment = 1

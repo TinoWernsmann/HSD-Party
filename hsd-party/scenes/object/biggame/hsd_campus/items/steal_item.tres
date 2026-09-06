@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bbbdsqsmujw6q"]
+
+[ext_resource type="Texture2D" uid="uid://bid8cbgf3nxis" path="res://assets/sprites/biggame/hsd_campus/items/Datemstehler.png" id="1_70q3x"]
+[ext_resource type="Script" uid="uid://cshctyika70kb" path="res://scripts/biggame/hsd_campus/items/items.gd" id="1_mjt2a"]
+
+[resource]
+script = ExtResource("1_mjt2a")
+type = 4
+shop_price = 10
+item_name = "Datenstehler"
+icon = ExtResource("1_70q3x")
+description = "Dieses Gerät lag irgendwie auf dem Kampus rum. Komisch. Stehle ein Item eines anderen Spielers."
+metadata/_custom_type_script = "uid://cshctyika70kb"

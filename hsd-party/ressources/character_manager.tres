@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="CharacterManager" load_steps=27 format=3 uid="uid://c1408hv7eptf3"]
+
+[ext_resource type="Script" uid="uid://bagwiyi1frgmu" path="res://scripts/core/character_info.gd" id="1_eghr0"]
+[ext_resource type="Script" uid="uid://cpprvgemlo82l" path="res://scripts/core/character_manager.gd" id="2_2ildv"]
+[ext_resource type="Texture2D" uid="uid://b3hgm1jk7agh1" path="res://assets/sprites/character_icons/player_blue.png" id="2_8addd"]
+[ext_resource type="Texture2D" uid="uid://bild8nhd4dtdp" path="res://assets/textures/player/player_blue.png" id="4_pmd5b"]
+[ext_resource type="Texture2D" uid="uid://b8pygse5rvf7i" path="res://assets/sprites/character_icons/player_magenta.png" id="6_tykhr"]
+[ext_resource type="Texture2D" uid="uid://b4w7n4ch4gd08" path="res://assets/textures/player/player_magenta.png" id="7_lly47"]
+[ext_resource type="Texture2D" uid="uid://ddcbdaiyd8vqw" path="res://assets/sprites/character_icons/Pink.png" id="8_i8vwv"]
+[ext_resource type="Texture2D" uid="uid://b82y7klfs2gj5" path="res://assets/textures/player/player_pink.png" id="9_kda0n"]
+[ext_resource type="Texture2D" uid="uid://fyuhbyhb88tj" path="res://assets/sprites/character_icons/player_black.png" id="9_pyj8t"]
+[ext_resource type="Texture2D" uid="uid://bguyisdyad15d" path="res://assets/sprites/character_icons/player_green.png" id="10_i8vwv"]
+[ext_resource type="Texture2D" uid="uid://cgblo8jnkd82g" path="res://assets/textures/player/player_black.png" id="10_m185a"]
+[ext_resource type="Texture2D" uid="uid://b7wllghmuu75w" path="res://assets/textures/player/player_yellow.png" id="15_4l5tf"]
+[ext_resource type="Texture2D" uid="uid://mcdp1aylbcce" path="res://assets/sprites/character_icons/player_orange.png" id="15_kda0n"]
+[ext_resource type="Texture2D" uid="uid://fuyukgbiegsx" path="res://assets/textures/player/player_green.png" id="16_5gx2d"]
+[ext_resource type="Texture2D" uid="uid://dtwy2tn13a654" path="res://assets/sprites/character_icons/player_white.png" id="18_jhgeq"]
+[ext_resource type="Texture2D" uid="uid://b2uy4mfvj2gq3" path="res://assets/textures/player/player_white.png" id="19_eygpe"]
+[ext_resource type="Texture2D" uid="uid://viuox04x8khr" path="res://assets/sprites/character_icons/player_yellow.png" id="21_s1bmp"]
+[ext_resource type="Texture2D" uid="uid://b7mi682nf1s6c" path="res://assets/textures/player/player_orange.png" id="23_j7v04"]
+
+[sub_resource type="Resource" id="Resource_kjqxr"]
+script = ExtResource("1_eghr0")
+name = "Blue"
+character_icon = ExtResource("2_8addd")
+character_texture = ExtResource("4_pmd5b")
+character_color = Color(0, 0, 1, 1)
+contrast_color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://bagwiyi1frgmu"
+
+[sub_resource type="Resource" id="Resource_3jox2"]
+script = ExtResource("1_eghr0")
+name = "Magenta"
+character_icon = ExtResource("6_tykhr")
+character_texture = ExtResource("7_lly47")
+character_color = Color(0.49803922, 0, 1, 1)
+contrast_color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://bagwiyi1frgmu"
+
+[sub_resource type="Resource" id="Resource_f8viq"]
+script = ExtResource("1_eghr0")
+name = "Black"
+character_icon = ExtResource("9_pyj8t")
+character_texture = ExtResource("10_m185a")
+contrast_color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://bagwiyi1frgmu"
+
+[sub_resource type="Resource" id="Resource_7chij"]
+script = ExtResource("1_eghr0")
+name = "pink"
+character_icon = ExtResource("8_i8vwv")
+character_texture = ExtResource("9_kda0n")
+character_color = Color(1, 0, 1, 1)
+metadata/_custom_type_script = "uid://bagwiyi1frgmu"
+
+[sub_resource type="Resource" id="Resource_dcns4"]
+script = ExtResource("1_eghr0")
+name = "Green"
+character_icon = ExtResource("10_i8vwv")
+character_texture = ExtResource("16_5gx2d")
+character_color = Color(0, 1, 0, 1)
+metadata/_custom_type_script = "uid://bagwiyi1frgmu"
+
+[sub_resource type="Resource" id="Resource_yr2on"]
+script = ExtResource("1_eghr0")
+name = "White"
+character_icon = ExtResource("18_jhgeq")
+character_texture = ExtResource("19_eygpe")
+character_color = Color(1, 1, 1, 1)
+metadata/_custom_type_script = "uid://bagwiyi1frgmu"
+
+[sub_resource type="Resource" id="Resource_m35b3"]
+script = ExtResource("1_eghr0")
+name = "Yellow"
+character_icon = ExtResource("21_s1bmp")
+character_texture = ExtResource("15_4l5tf")
+character_color = Color(1, 1, 0, 1)
+metadata/_custom_type_script = "uid://bagwiyi1frgmu"
+
+[sub_resource type="Resource" id="Resource_5gx2d"]
+script = ExtResource("1_eghr0")
+name = "Orange"
+character_icon = ExtResource("15_kda0n")
+character_texture = ExtResource("23_j7v04")
+character_color = Color(1, 0.5019608, 0, 1)
+metadata/_custom_type_script = "uid://bagwiyi1frgmu"
+
+[resource]
+script = ExtResource("2_2ildv")
+available_character = Array[ExtResource("1_eghr0")]([SubResource("Resource_kjqxr"), SubResource("Resource_3jox2"), SubResource("Resource_f8viq"), SubResource("Resource_7chij"), SubResource("Resource_dcns4"), SubResource("Resource_yr2on"), SubResource("Resource_m35b3"), SubResource("Resource_5gx2d")])
+metadata/_custom_type_script = "uid://cpprvgemlo82l"

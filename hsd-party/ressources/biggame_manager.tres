@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="BiggameManager" load_steps=9 format=3 uid="uid://0uvcrdt4kfud"]
+
+[ext_resource type="Script" uid="uid://d0yiegqy6ebl7" path="res://scripts/core/biggame/biggame_info.gd" id="1_6ekek"]
+[ext_resource type="PackedScene" uid="uid://dy75ybgs38de8" path="res://scenes/level/biggame/biggame_hsd_campus.tscn" id="2_elkgk"]
+[ext_resource type="Script" uid="uid://v8h3myohisia" path="res://scripts/core/biggame/biggame_manager.gd" id="2_yhpwf"]
+[ext_resource type="PackedScene" uid="uid://dq3gnax5pthtv" path="res://scenes/object/biggame_settings/biggame_settings_hsd_campus.tscn" id="3_liibx"]
+[ext_resource type="PackedScene" uid="uid://cd2v41la2omb7" path="res://scenes/level/biggame/biggame_minigame.tscn" id="4_7fgvx"]
+[ext_resource type="PackedScene" uid="uid://ckc8u0q3g73o7" path="res://scenes/object/biggame_settings/biggame_settings_minigame.tscn" id="5_5vysd"]
+
+[sub_resource type="Resource" id="Resource_6ekek"]
+script = ExtResource("1_6ekek")
+name = "Campus-Party"
+settings = ExtResource("3_liibx")
+level = ExtResource("2_elkgk")
+min_player = 2
+metadata/_custom_type_script = "uid://d0yiegqy6ebl7"
+
+[sub_resource type="Resource" id="Resource_yhpwf"]
+script = ExtResource("1_6ekek")
+name = "Minigames"
+settings = ExtResource("5_5vysd")
+level = ExtResource("4_7fgvx")
+online_multiplayer = true
+ai_player = true
+metadata/_custom_type_script = "uid://d0yiegqy6ebl7"
+
+[resource]
+script = ExtResource("2_yhpwf")
+biggames = Array[ExtResource("1_6ekek")]([SubResource("Resource_6ekek"), SubResource("Resource_yhpwf")])
+metadata/_custom_type_script = "uid://v8h3myohisia"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci0eqtxgnl51q"]
+
+[ext_resource type="Script" uid="uid://loo2ha8e8e5u" path="res://scripts/core/manager/hsd_party_manager.gd" id="1_2kxpt"]
+[ext_resource type="PackedScene" uid="uid://dl0rq7g4ed5q3" path="res://scenes/object/core/ui_elements/info_panel.tscn" id="2_2wvte"]
+[ext_resource type="PackedScene" uid="uid://ckiex5gbe8m4d" path="res://scenes/object/core/ui_elements/hsd_party_menu.tscn" id="2_24vnp"]
+[ext_resource type="PackedScene" uid="uid://cxkictcfcbjch" path="res://scenes/object/core/manager/main_manager/online_main_manager.tscn" id="3_wccxw"]
+[ext_resource type="PackedScene" uid="uid://be2vhpa3csdre" path="res://scenes/object/core/manager/main_manager/offline_main_manager.tscn" id="4_xxj3q"]
+
+[node name="HSD-Party" type="Node"]
+script = ExtResource("1_2kxpt")
+main_menu_scene = ExtResource("2_24vnp")
+online_main_manager_scene = ExtResource("3_wccxw")
+offline_main_manager_scene = ExtResource("4_xxj3q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 1002
+
+[node name="InfoPanel" parent="CanvasLayer" instance=ExtResource("2_2wvte")]

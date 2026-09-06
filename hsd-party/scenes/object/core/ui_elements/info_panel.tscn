@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl0rq7g4ed5q3"]
+
+[ext_resource type="Script" uid="uid://begsyd0rtufo6" path="res://scripts/core/controller/info_panel_controller.gd" id="1_gcbig"]
+
+[node name="InfoPanel" type="PanelContainer" node_paths=PackedStringArray("label")]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+offset_left = -35.5
+offset_top = -55.0
+offset_right = 35.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"InfoTextPanel"
+script = ExtResource("1_gcbig")
+label = NodePath("MarginContainer/Label")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"InfoText"
+text = "Info"
+horizontal_alignment = 1
+vertical_alignment = 2

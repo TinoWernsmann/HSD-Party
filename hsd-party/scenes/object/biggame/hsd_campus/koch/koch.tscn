@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh3xu0a1p3hmh"]
+
+[ext_resource type="PackedScene" uid="uid://cbd16y2kcbuou" path="res://assets/models/biggame/hsd_campus/map/koch.glb" id="1_q1nx0"]
+
+[node name="koch" instance=ExtResource("1_q1nx0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

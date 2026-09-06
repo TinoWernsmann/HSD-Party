@@ -1,0 +1,64 @@
+image: phizuol/godot-ci:4.5-stable # Docker image comes with Godot 4
+
+stages:
+    - test
+    - export
+    #- deploy; Only possible once/if we have a deploy server
+
+variables:
+    GODOT_VERSION: "4.5"
+    EXPORT_NAME: "HSDparty"
+
+cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+        - .godot/
+
+# Stage 1 (test): Run healdess tests
+test_game:
+    stage: test
+    script:
+        - echo "Running Godot tests..."
+        - godot --headless --import --path hsd-party -s res://addons/gut/gut_cmdln.gd -gdir=res://tests -gexit
+
+export_windows_game:
+    stage: export
+    script:
+        - echo "Exporting game..."
+        - mkdir -p hsd-party/builds
+        - godot --headless --path hsd-party --export-release "Windows Desktop Spiel" builds/${EXPORT_NAME}_windows.exe
+    artifacts:
+        paths:
+            - hsd-party/builds
+        expire_in: 1 hour
+    rules:
+        - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
+        - when: never
+
+export_windows_server:
+    stage: export
+    script:
+        - echo "Exporting game..."
+        - mkdir -p hsd-party/builds
+        - godot --headless --path hsd-party --export-release "Windows Desktop Server" builds/${EXPORT_NAME}_windows.exe
+    artifacts:
+        paths:
+            - hsd-party/builds/
+        expire_in: 1 hour
+    rules:
+        - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
+        - when: never
+
+export_linux_server:
+    stage: export
+    script:
+        - echo "Exporting game..."
+        - mkdir -p hsd-party/builds
+        - godot --headless --path hsd-party --export-release "Linux" builds/${EXPORT_NAME}_windows.exe
+    artifacts:
+        paths:
+            - hsd-party/builds/
+        expire_in: 1 hour
+    rules:
+        - if: '$CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE == "push"'
+        - when: never

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuvi0puquuc13"]
+
+[ext_resource type="Script" uid="uid://deuwx2ax3nppl" path="res://scripts/core/controller/input_description_controller.gd" id="1_dbwlc"]
+[ext_resource type="PackedScene" uid="uid://binw7e3iccy16" path="res://scenes/object/shared/control_icon.tscn" id="2_dbwlc"]
+[ext_resource type="Texture2D" uid="uid://blamcir3lymgp" path="res://assets/sprites/ui/keys/Strg.png" id="3_xnkct"]
+
+[node name="InputDescription" type="HBoxContainer" node_paths=PackedStringArray("label", "icon")]
+theme_override_constants/separation = 10
+script = ExtResource("1_dbwlc")
+label = NodePath("Label")
+icon = NodePath("ControlIcon")
+
+[node name="ControlIcon" parent="." instance=ExtResource("2_dbwlc")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_xnkct")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Laufen auf X"

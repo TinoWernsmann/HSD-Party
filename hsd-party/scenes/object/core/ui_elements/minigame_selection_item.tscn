@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm11pi2bmbpnh"]
+
+[ext_resource type="Script" uid="uid://dcbq6nnbysbdb" path="res://scripts/core/minigame/minigame_selection_item.gd" id="1_rvjmy"]
+[ext_resource type="Texture2D" uid="uid://ce68pokpnp6xc" path="res://assets/models/biggame/hsd_campus/dice/wuerfel_textur.png" id="2_j8aa5"]
+
+[node name="MinigameSelectionItem" type="Button"]
+custom_minimum_size = Vector2(200, 100)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_rvjmy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Thumbnail" type="TextureRect" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_j8aa5")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Pong"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,235 @@
+[gd_scene load_steps=6 format=3 uid="uid://prpiib3l7lf7"]
+
+[ext_resource type="Script" uid="uid://bejikvcihkq1" path="res://scripts/core/controller/player_settings_controller.gd" id="1_4h78c"]
+[ext_resource type="Texture2D" uid="uid://brna2c3ljf01l" path="res://assets/sprites/ui/wasd.png" id="2_s3j3o"]
+[ext_resource type="Texture2D" uid="uid://eg31elu2jcwb" path="res://assets/sprites/character_icons/player_blue.png" id="3_2kwxr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fahm"]
+bg_color = Color(0, 0, 0, 0.827451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yd1a"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="PlayerSettings" type="Panel" node_paths=PackedStringArray("player_label", "difficulty_container", "controller_container", "character_container", "client_label", "difficulty_label", "controller_texure", "character_texture")]
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.1
+anchor_right = 0.8
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3fahm")
+script = ExtResource("1_4h78c")
+player_label = NodePath("MarginContainer/VBoxContainer2/PlayerLabel")
+difficulty_container = NodePath("MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/DifficultyContainer")
+controller_container = NodePath("MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer")
+character_container = NodePath("MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer")
+client_label = NodePath("MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ClientContainer/ClientSelect/ClientLabel")
+difficulty_label = NodePath("MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/DifficultyContainer/DifficultySelect/DifficultyLabel")
+controller_texure = NodePath("MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer/ControlSelect/CenterContainer/Panel/ControllerTexure")
+character_texture = NodePath("MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer/CharacterSelect/CenterContainer/Character_texture")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Spieler Einstellungen"
+horizontal_alignment = 1
+
+[node name="PlayerLabel" type="Label" parent="MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Spieler 1"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="ClientContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ClientSelectLabel" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ClientContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Client"
+horizontal_alignment = 1
+
+[node name="ClientSelect" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ClientContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LastClient" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ClientContainer/ClientSelect"]
+layout_mode = 2
+text = "<"
+
+[node name="ClientLabel" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ClientContainer/ClientSelect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Client 1"
+horizontal_alignment = 1
+
+[node name="NextClient" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ClientContainer/ClientSelect"]
+layout_mode = 2
+text = ">"
+
+[node name="DifficultyContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="DifficultySelectLabel" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/DifficultyContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Schwierigkeit"
+horizontal_alignment = 1
+
+[node name="DifficultySelect" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/DifficultyContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LastDifficulty" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/DifficultyContainer/DifficultySelect"]
+layout_mode = 2
+text = "<"
+
+[node name="DifficultyLabel" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/DifficultyContainer/DifficultySelect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Leicht"
+horizontal_alignment = 1
+
+[node name="NextDifficulty" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/DifficultyContainer/DifficultySelect"]
+layout_mode = 2
+text = ">"
+
+[node name="ControllContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ControllerSelectLabel" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Steuerung"
+horizontal_alignment = 1
+
+[node name="ControlSelect" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LastControl" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer/ControlSelect"]
+layout_mode = 2
+text = "<"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer/ControlSelect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer/ControlSelect/CenterContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_0yd1a")
+
+[node name="ControllerTexure" type="TextureRect" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer/ControlSelect/CenterContainer/Panel"]
+custom_minimum_size = Vector2(170, 170)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -59.999992
+offset_right = 60.0
+offset_bottom = 60.000008
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s3j3o")
+expand_mode = 4
+
+[node name="NextControl" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer/ControlSelect"]
+layout_mode = 2
+text = ">"
+
+[node name="CharacterContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="CharacterSelectLabel" type="Label" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Charakter"
+horizontal_alignment = 1
+
+[node name="CharacterSelect" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LastCharacter" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer/CharacterSelect"]
+layout_mode = 2
+text = "<"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer/CharacterSelect"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Character_texture" type="TextureRect" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer/CharacterSelect/CenterContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+texture = ExtResource("3_2kwxr")
+expand_mode = 4
+
+[node name="NextCharacter" type="Button" parent="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer/CharacterSelect"]
+layout_mode = 2
+text = ">"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Done" type="Button" parent="MarginContainer/VBoxContainer2/CenterContainer"]
+layout_mode = 2
+text = "Fertig"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ClientContainer/ClientSelect/LastClient" to="." method="_on_last_client_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ClientContainer/ClientSelect/NextClient" to="." method="_on_next_client_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/DifficultyContainer/DifficultySelect/LastDifficulty" to="." method="_on_last_difficulty_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/DifficultyContainer/DifficultySelect/NextDifficulty" to="." method="_on_next_difficulty_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer/ControlSelect/LastControl" to="." method="_on_last_control_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/ControllContainer/ControlSelect/NextControl" to="." method="_on_next_control_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer/CharacterSelect/LastCharacter" to="." method="_on_last_character_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/CharacterContainer/CharacterSelect/NextCharacter" to="." method="_on_next_character_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/CenterContainer/Done" to="." method="_on_done_pressed"]

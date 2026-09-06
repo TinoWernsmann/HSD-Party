@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://tmfv4fbfxlpk"]
+
+[ext_resource type="Script" uid="uid://cshctyika70kb" path="res://scripts/biggame/hsd_campus/items/items.gd" id="1_g3dc1"]
+[ext_resource type="Texture2D" uid="uid://d1yvjesl56pte" path="res://assets/sprites/biggame/hsd_campus/items/Flunkiball.png" id="1_yqk1h"]
+
+[resource]
+script = ExtResource("1_g3dc1")
+type = 2
+shop_price = 10
+item_name = "Flunkyball"
+icon = ExtResource("1_yqk1h")
+description = "Spiele ein Flunkyball Duell gegen einen anderen Spieler! Minispiel Gewinner bekommt etwas!"
+metadata/_custom_type_script = "uid://cshctyika70kb"

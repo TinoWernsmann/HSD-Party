@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c870tnt7jc3ad"]
+
+[ext_resource type="Script" uid="uid://baifnkmlv8jbe" path="res://scripts/biggame/hsd_campus/manager/star_tile_manager.gd" id="1_5rpbo"]
+
+[node name="star_tile_manager" type="Node3D"]
+script = ExtResource("1_5rpbo")

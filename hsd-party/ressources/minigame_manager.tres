@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="MinigameManager" load_steps=12 format=3 uid="uid://ci358yywq4l3h"]
+
+[ext_resource type="Script" uid="uid://jjb2mlwdvle4" path="res://scripts/core/minigame/minigame_info.gd" id="1_tuqy1"]
+[ext_resource type="Script" uid="uid://cixmvd5kyy61s" path="res://scripts/core/control_info.gd" id="2_kqkhq"]
+[ext_resource type="Script" uid="uid://r0g7l2614las" path="res://scripts/core/minigame/minigame_manager.gd" id="2_m244u"]
+[ext_resource type="Texture2D" uid="uid://c8blf5f8mbmf8" path="res://assets/sprites/minigame/debug/icon.png" id="3_jte7f"]
+[ext_resource type="PackedScene" uid="uid://oyo6oyo21t1c" path="res://scenes/level/minigames/minigame_debug.tscn" id="4_0ijv1"]
+[ext_resource type="Script" uid="uid://bw86p17fvrmt5" path="res://scripts/core/control_info_axis.gd" id="4_jte7f"]
+[ext_resource type="Texture2D" uid="uid://cyr70x01f41sf" path="res://assets/sprites/minigame/pong/icon.png" id="6_0ijv1"]
+[ext_resource type="PackedScene" uid="uid://4o24jac3vsin" path="res://scenes/level/minigames/minigame_pong.tscn" id="6_jte7f"]
+
+[sub_resource type="Resource" id="Resource_tuqy1"]
+script = ExtResource("1_tuqy1")
+name = "Debug"
+preview_description = "Ein Spiel, wo das Ergebniss festgelegt werden kann. Dieses Minispiel dient dem Testzweck.
+
+Online:
+- Nur der Host kann Eingaben machen."
+icon = ExtResource("3_jte7f")
+game_description = "Füge jedem Spieler Punkte hinzu und beende das Minispiel. Gewonnen hat der Spieler mit den meisten Pukten."
+instruction_playing = true
+ai_player = true
+online_multiplayer = true
+game_types = Array[int]([0, 1, 2, 3, 4])
+debug_minigame = true
+metadata/_custom_type_script = "uid://jjb2mlwdvle4"
+
+[sub_resource type="Resource" id="Resource_155g5"]
+script = ExtResource("4_jte7f")
+control_description = "Padlebewegen"
+metadata/_custom_type_script = "uid://bw86p17fvrmt5"
+
+[sub_resource type="Resource" id="Resource_0ijv1"]
+script = ExtResource("1_tuqy1")
+name = "Pong"
+preview_description = "Der klassiker unter den Arcadegames. Pong halt."
+icon = ExtResource("6_0ijv1")
+control_info = Array[ExtResource("2_kqkhq")]([SubResource("Resource_155g5")])
+game_description = "Verteidige dein Tor vor den Bällen und versuche möglichst wenig Minus Punkte zu haben. Der Spieler, mit den wenigsten Treffern gewinnt."
+level = ExtResource("6_jte7f")
+instruction_playing = true
+ai_player = true
+min_player = 2
+metadata/_custom_type_script = "uid://jjb2mlwdvle4"
+
+[resource]
+script = ExtResource("2_m244u")
+minigames = Array[ExtResource("1_tuqy1")]([SubResource("Resource_tuqy1"), SubResource("Resource_0ijv1")])
+metadata/_custom_type_script = "uid://r0g7l2614las"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctwdxd0n8vugp"]
+
+[ext_resource type="Script" uid="uid://dc5jml67i1x8m" path="res://scripts/biggame/hsd_campus/manager/camera.gd" id="1_lba0o"]
+
+[node name="GameCam" type="Camera3D"]
+script = ExtResource("1_lba0o")

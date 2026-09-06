@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://oyo6oyo21t1c"]
+
+[ext_resource type="Script" uid="uid://qdncs4ww1mpy" path="res://scripts/minigame/debug/debug.gd" id="1_lry53"]
+[ext_resource type="PackedScene" uid="uid://bekodtih4g0ar" path="res://scenes/object/minigame/debug/player_input_panel.tscn" id="2_fftfn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fftfn"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Debug" type="Node" node_paths=PackedStringArray("player_input_panel_container", "winning_message_container", "winning_player_container", "reset_panel")]
+script = ExtResource("1_lry53")
+player_input_panel_scene = ExtResource("2_fftfn")
+player_input_panel_container = NodePath("VBoxContainer/PlayerInputPanelContainer")
+winning_message_container = NodePath("WinningMessageContainer")
+winning_player_container = NodePath("WinningMessageContainer/HBoxContainer")
+reset_panel = NodePath("ResetPanel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Debug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerInputPanelContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Footer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Finish" type="Button" parent="VBoxContainer/MarginContainer/Footer"]
+layout_mode = 2
+text = "Fertig"
+
+[node name="WinningMessageContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WinningMessageContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResetPanel" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fftfn")
+
+[node name="Reset" type="Label" parent="ResetPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderLarge"
+text = "Reset"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer/Footer/Finish" to="." method="_on_finish_pressed"]

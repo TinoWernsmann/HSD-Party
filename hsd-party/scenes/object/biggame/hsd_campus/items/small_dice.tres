@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dt3dtm6i40vfr"]
+
+[ext_resource type="Texture2D" uid="uid://c7cmdxfl01w14" path="res://assets/sprites/biggame/hsd_campus/items/Softdrink.png" id="1_1s23v"]
+[ext_resource type="Script" uid="uid://cshctyika70kb" path="res://scripts/biggame/hsd_campus/items/items.gd" id="1_o4tno"]
+
+[resource]
+script = ExtResource("1_o4tno")
+type = 1
+shop_price = 10
+item_name = "Soft Drink"
+icon = ExtResource("1_1s23v")
+description = "Dieser Soft Drink wurde seit Jahren nicht gekauft. Nächster Wurf ist 1-4!"
+metadata/_custom_type_script = "uid://cshctyika70kb"

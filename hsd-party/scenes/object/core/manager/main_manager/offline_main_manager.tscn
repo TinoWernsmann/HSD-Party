@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://be2vhpa3csdre"]
+
+[ext_resource type="Script" uid="uid://duus81aoi764w" path="res://scripts/core/manager/main_manager/offline_main_manager.gd" id="1_cdv2j"]
+[ext_resource type="PackedScene" uid="uid://fsvc5cian48w" path="res://scenes/object/core/manager/game_room_manager/offline_game_room_manager.tscn" id="2_mtd6d"]
+
+[node name="OfflineManager" type="Node"]
+script = ExtResource("1_cdv2j")
+offline_game_room_manager_scene = ExtResource("2_mtd6d")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://33f5kihe6fxn"]
+
+[ext_resource type="Script" uid="uid://0p0owmayfp84" path="res://scripts/biggame/hsd_campus/manager/path_manager.gd" id="1_qul5b"]
+
+[node name="path_manager" type="Node3D"]
+script = ExtResource("1_qul5b")

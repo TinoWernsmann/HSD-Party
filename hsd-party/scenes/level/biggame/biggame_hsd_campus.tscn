@@ -1,0 +1,1199 @@
+[gd_scene load_steps=46 format=3 uid="uid://dy75ybgs38de8"]
+
+[ext_resource type="Script" uid="uid://b03bgbnita4o4" path="res://scripts/biggame/hsd_campus/hsd_campus.gd" id="1_bm24h"]
+[ext_resource type="PackedScene" uid="uid://dovskhe3xpqjb" path="res://scenes/object/biggame/hsd_campus/dice/dice.tscn" id="1_pd1ce"]
+[ext_resource type="PackedScene" uid="uid://cobdd5nk5kvwx" path="res://scenes/object/biggame/hsd_campus/ending_screen.tscn" id="2_3caeh"]
+[ext_resource type="PackedScene" uid="uid://dyqsfyl4vvnji" path="res://scenes/object/core/ui_elements/minigame_instruction/minigame_instruction.tscn" id="2_7or6t"]
+[ext_resource type="PackedScene" uid="uid://baqpieta7ci5b" path="res://scenes/object/biggame/hsd_campus/manager/ui_manager.tscn" id="2_e54cu"]
+[ext_resource type="PackedScene" uid="uid://b58nddkojfqmr" path="res://scenes/object/biggame/hsd_campus/tiles/tile.tscn" id="3_ktxt5"]
+[ext_resource type="PackedScene" uid="uid://bqoxl18lmkknj" path="res://scenes/object/biggame/hsd_campus/tiles/event_tile.tscn" id="4_6b056"]
+[ext_resource type="PackedScene" uid="uid://c6t67sifcwb70" path="res://scenes/object/biggame/hsd_campus/ui/player_panel.tscn" id="4_lou1k"]
+[ext_resource type="PackedScene" uid="uid://xp0yflminwxb" path="res://scenes/object/biggame/hsd_campus/tiles/negative_tile.tscn" id="5_hqwwx"]
+[ext_resource type="PackedScene" uid="uid://cvuset5j0m128" path="res://scenes/object/biggame/hsd_campus/tiles/quiz_tile.tscn" id="6_g8fns"]
+[ext_resource type="PackedScene" uid="uid://dmexgk0qi2ua7" path="res://scenes/object/biggame/hsd_campus/tiles/split_tile.tscn" id="6_qxa6w"]
+[ext_resource type="PackedScene" uid="uid://bvoa5cocpj8fi" path="res://scenes/object/biggame/hsd_campus/player/player.tscn" id="8_2503h"]
+[ext_resource type="PackedScene" uid="uid://br6gun8mtgf1q" path="res://scenes/object/biggame/hsd_campus/ui/black_screen.tscn" id="8_qxa6w"]
+[ext_resource type="PackedScene" uid="uid://ctwdxd0n8vugp" path="res://scenes/object/biggame/hsd_campus/manager/game_cam.tscn" id="10_6b056"]
+[ext_resource type="PackedScene" uid="uid://r1b6xhh0prvq" path="res://scenes/object/biggame/hsd_campus/tiles/shop_tile.tscn" id="12_760wy"]
+[ext_resource type="PackedScene" uid="uid://33f5kihe6fxn" path="res://scenes/object/biggame/hsd_campus/manager/path_manager.tscn" id="12_hqwwx"]
+[ext_resource type="Script" uid="uid://cshctyika70kb" path="res://scripts/biggame/hsd_campus/items/items.gd" id="13_hjeb1"]
+[ext_resource type="Resource" uid="uid://6d4p4ehaf6cy" path="res://scenes/object/biggame/hsd_campus/items/big_dice.tres" id="14_0b1ba"]
+[ext_resource type="PackedScene" uid="uid://binw7e3iccy16" path="res://scenes/object/shared/control_icon.tscn" id="14_ux3i0"]
+[ext_resource type="PackedScene" uid="uid://c870tnt7jc3ad" path="res://scenes/object/biggame/hsd_campus/manager/star_tile_manager.tscn" id="15_2503h"]
+[ext_resource type="Resource" uid="uid://dt3dtm6i40vfr" path="res://scenes/object/biggame/hsd_campus/items/small_dice.tres" id="16_hjeb1"]
+[ext_resource type="PackedScene" uid="uid://paqr0gj2i65v" path="res://assets/models/biggame/hsd_campus/charcter/player.glb" id="16_ne8fr"]
+[ext_resource type="Script" uid="uid://ddsh3rdxuqban" path="res://scripts/biggame/hsd_campus/UI/round_counter.gd" id="16_uqrx7"]
+[ext_resource type="Script" uid="uid://dy2q8jo6tr57b" path="res://scripts/biggame/hsd_campus/manager/board_logic.gd" id="17_iqo5r"]
+[ext_resource type="Script" uid="uid://v2yiqahhyf6e" path="res://scripts/biggame/hsd_campus/manager/game_manager.gd" id="18_uykf4"]
+[ext_resource type="Resource" uid="uid://bjhmt0j4jldmr" path="res://scenes/object/biggame/hsd_campus/items/steal_coins.tres" id="19_68inm"]
+[ext_resource type="Resource" uid="uid://cfc6uwd3s3dwt" path="res://scenes/object/biggame/hsd_campus/items/star_teleporter.tres" id="19_ucu16"]
+[ext_resource type="Resource" uid="uid://bbbdsqsmujw6q" path="res://scenes/object/biggame/hsd_campus/items/steal_item.tres" id="20_ne8fr"]
+[ext_resource type="PackedScene" uid="uid://bh3xu0a1p3hmh" path="res://scenes/object/biggame/hsd_campus/koch/koch.tscn" id="21_ux3i0"]
+[ext_resource type="Script" uid="uid://c2emtwskoaxx" path="res://scripts/biggame/hsd_campus/items/item_factory.gd" id="23_6mu8b"]
+[ext_resource type="Resource" uid="uid://qt6ai7u7iccp" path="res://scenes/object/biggame/hsd_campus/items/teleport_item.tres" id="24_dpjon"]
+[ext_resource type="Material" uid="uid://bfa4r2j1mwv2w" path="res://ressources/material/biggame/hsd_campus/player/player.tres" id="24_lou1k"]
+[ext_resource type="PackedScene" uid="uid://du4hgibpuojxi" path="res://scenes/object/biggame/hsd_campus/tiles/random_shop_tile.tscn" id="27_3caeh"]
+[ext_resource type="PackedScene" uid="uid://chu46u4a5jt7j" path="res://scenes/object/biggame/hsd_campus/tiles/teleport_tile.tscn" id="27_760wy"]
+[ext_resource type="Texture2D" uid="uid://dyh7nvl6fwyv2" path="res://assets/textures/biggame/hsd_campus/skybox/sky_19_2k.png" id="30_4apiw"]
+[ext_resource type="Script" uid="uid://b8hp2ll5k7rnv" path="res://scripts/biggame/hsd_campus/initiators/player_initiator.gd" id="32_dpjon"]
+[ext_resource type="Script" uid="uid://bmbw1r7y12gc8" path="res://scripts/biggame/hsd_campus/initiators/tile_initiator.gd" id="33_68inm"]
+[ext_resource type="Script" uid="uid://dho0jbpoctsyc" path="res://scripts/biggame/hsd_campus/manager/turn_manager.gd" id="33_ne8fr"]
+[ext_resource type="Script" uid="uid://urwc4gvmrpk5" path="res://scripts/biggame/hsd_campus/manager/audio_manager.gd" id="37_760wy"]
+[ext_resource type="Script" uid="uid://j6iuh0qbute3" path="res://scripts/core/music_manager.gd" id="38_68inm"]
+[ext_resource type="PackedScene" uid="uid://0ljyihyaugt" path="res://scenes/map/hsd_fixed_scene.tscn" id="41_ne8fr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lou1k"]
+font_size = 18
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_uxqbi"]
+panorama = ExtResource("30_4apiw")
+
+[sub_resource type="Sky" id="Sky_7or6t"]
+sky_material = SubResource("PanoramaSkyMaterial_uxqbi")
+
+[sub_resource type="Environment" id="Environment_t4yr6"]
+background_mode = 2
+sky = SubResource("Sky_7or6t")
+
+[node name="HSDCampus" type="Node3D" node_paths=PackedStringArray("game_manager", "playground")]
+script = ExtResource("1_bm24h")
+minigame_instruction_scene = ExtResource("2_7or6t")
+ending_screen_scene = ExtResource("2_3caeh")
+game_manager = NodePath("Playground/game_manager")
+playground = NodePath("Playground")
+
+[node name="Playground" type="Node3D" parent="."]
+
+[node name="game_manager" type="Node3D" parent="Playground" node_paths=PackedStringArray("camera", "ui_manager", "board_logic", "star_manager", "hsd_campus", "item_factory", "path_manager", "tile_init", "player_init", "turn_manager", "canvas_layer_to_hide")]
+script = ExtResource("18_uykf4")
+camera = NodePath("../Cams/GameCam")
+ui_manager = NodePath("UI_manager")
+board_logic = NodePath("../board_logic")
+star_manager = NodePath("../star_tile_manager")
+hsd_campus = NodePath("../..")
+item_factory = NodePath("../item_factory")
+path_manager = NodePath("../path_manager")
+tile_init = NodePath("tile_initiator")
+player_init = NodePath("player_initiator")
+turn_manager = NodePath("turn_manager")
+canvas_layer_to_hide = [NodePath("../UIs/wuerfel_ui"), NodePath("../UIs/black_screen"), NodePath("../UIs/round_counter"), NodePath("../UIs/controls")]
+
+[node name="UI_manager" parent="Playground/game_manager" node_paths=PackedStringArray("black_screen", "round_counter", "ui_root", "player_whole_UI", "player_roll_control", "player_item_control", "player_cam_control", "player_four_control", "select_item_description", "player_pick_prompt", "players_root") instance=ExtResource("2_e54cu")]
+player_ui_scene = ExtResource("4_lou1k")
+black_screen = NodePath("../../UIs/black_screen")
+round_counter = NodePath("../../UIs/round_counter/RoundLabel")
+ui_root = NodePath("../../UIs/round_counter")
+player_whole_UI = NodePath("../../UIs/controls")
+player_roll_control = NodePath("../../UIs/controls/VBoxContainer2/ControlIcon")
+player_item_control = NodePath("../../UIs/controls/VBoxContainer2/ControlIcon2")
+player_cam_control = NodePath("../../UIs/controls/VBoxContainer2/ControlIcon3")
+player_four_control = NodePath("../../UIs/controls/VBoxContainer2/ControlIcon4")
+select_item_description = NodePath("../../UIs/item_ui/DescContainer/Description")
+player_pick_prompt = NodePath("../../UIs/item_ui/UsageContainer/PickPlayerPrompt")
+players_root = NodePath("../../UIs/round_counter/HBoxContainer")
+
+[node name="tile_initiator" type="Node3D" parent="Playground/game_manager"]
+script = ExtResource("33_68inm")
+
+[node name="player_initiator" type="Node3D" parent="Playground/game_manager" node_paths=PackedStringArray("player_parent", "selected_dice", "start_tile")]
+script = ExtResource("32_dpjon")
+player_scene = ExtResource("8_2503h")
+player_parent = NodePath("../../Players")
+selected_dice = NodePath("../../dice")
+start_tile = NodePath("../../Tiles/StartPath/tile")
+offset = Array[Vector3]([Vector3(0.5, 0.2, 0.5), Vector3(-0.5, 0.2, 0.5), Vector3(0.5, 0.2, -0.5), Vector3(-0.5, 0.2, -0.5)])
+player_material = ExtResource("24_lou1k")
+
+[node name="turn_manager" type="Node3D" parent="Playground/game_manager"]
+script = ExtResource("33_ne8fr")
+
+[node name="UIs" type="Control" parent="Playground"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="wuerfel_ui" type="CanvasLayer" parent="Playground/UIs"]
+
+[node name="Label" type="Label" parent="Playground/UIs/wuerfel_ui"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -98.0
+offset_right = 116.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_lou1k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="black_screen" parent="Playground/UIs" instance=ExtResource("8_qxa6w")]
+
+[node name="round_counter" type="CanvasLayer" parent="Playground/UIs"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Playground/UIs/round_counter"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="RoundLabel" type="Label" parent="Playground/UIs/round_counter"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 49.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("16_uqrx7")
+
+[node name="controls" type="CanvasLayer" parent="Playground/UIs"]
+scale = Vector2(0.55, 0.55)
+transform = Transform2D(0.55, 0, 0, 0.55, 0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Playground/UIs/controls"]
+offset_left = -112.72727
+offset_top = 700.0
+offset_right = -72.72727
+offset_bottom = 740.0
+scale = Vector2(21.282887, 17.583874)
+color = Color(0.8980392, 0.8980392, 0.8980392, 0.6627451)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Playground/UIs/controls"]
+offset_left = 547.2727
+offset_top = 732.7272
+offset_right = 647.2727
+offset_bottom = 1237.7272
+scale = Vector2(1.25, 1.25)
+theme_override_constants/separation = 35
+
+[node name="ControlIcon" parent="Playground/UIs/controls/VBoxContainer2" instance=ExtResource("14_ux3i0")]
+layout_mode = 2
+
+[node name="ControlIcon2" parent="Playground/UIs/controls/VBoxContainer2" instance=ExtResource("14_ux3i0")]
+layout_mode = 2
+
+[node name="ControlIcon3" parent="Playground/UIs/controls/VBoxContainer2" instance=ExtResource("14_ux3i0")]
+layout_mode = 2
+
+[node name="ControlIcon4" parent="Playground/UIs/controls/VBoxContainer2" instance=ExtResource("14_ux3i0")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Playground/UIs/controls"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 18.181826
+offset_top = 206.36353
+offset_right = 517.1818
+offset_bottom = 801.3635
+grow_vertical = 2
+theme_override_constants/separation = 125
+
+[node name="wurf" type="Label" parent="Playground/UIs/controls/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1 / Würfeln / Bestätigen:"
+
+[node name="item" type="Label" parent="Playground/UIs/controls/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "2 / Item / Nächster:"
+
+[node name="cam" type="Label" parent="Playground/UIs/controls/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3 / Free Cam / Abbrechen:"
+
+[node name="4" type="Label" parent="Playground/UIs/controls/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "4 / Auswahl:"
+
+[node name="item_ui" type="CanvasLayer" parent="Playground/UIs"]
+
+[node name="DescContainer" type="MarginContainer" parent="Playground/UIs/item_ui"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -180.0
+offset_bottom = 180.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Description" type="Label" parent="Playground/UIs/item_ui/DescContainer"]
+custom_minimum_size = Vector2(500, 350)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9474059, 3.778264e-06, 1.732707e-06, 1)
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="UsageContainer" type="MarginContainer" parent="Playground/UIs/item_ui"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -55.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 150
+
+[node name="PickPlayerPrompt" type="Label" parent="Playground/UIs/item_ui/UsageContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92252904, 0.08326527, 0.36290365, 1)
+text = "Wähle einen Spieler"
+
+[node name="Tiles" type="Node3D" parent="Playground"]
+
+[node name="StartPath" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile" parent="Playground/Tiles/StartPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.584366, -0.15, 15.169502)
+game_manager = NodePath("../../../game_manager")
+is_not_cam_switch = true
+new_cam_z = 3.5
+
+[node name="tile2" parent="Playground/Tiles/StartPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.95482814, 0, 0.5461715, 0, 1.1, 0, -0.5461715, 0, 0.95482814, 10.51338, -0.15, 9.4492655)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="shop_tile" parent="Playground/Tiles/StartPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("12_760wy")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.584091, -0.15, 4.61854)
+shop_items = Array[ExtResource("13_hjeb1")]([ExtResource("14_0b1ba"), ExtResource("19_68inm"), ExtResource("16_hjeb1")])
+seller_model = ExtResource("21_ux3i0")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="split_tile10" parent="Playground/Tiles/StartPath" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.533836, -0.15, -1.8786392)
+path_options = [NodePath("../../split_tile9"), NodePath("../../Path2/split_tile11")]
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="Path1" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile4" parent="Playground/Tiles/Path1" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0716254, 0, 0.24823178, 0, 1.1, 0, -0.24823178, 0, 1.0716254, 4.5037947, -0.035840005, 2.0628386)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile7" parent="Playground/Tiles/Path1" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0804044, 0, 0.20670405, 0, 1.1, 0, -0.20670405, 0, 1.0804044, 3.6123168, -0.02700618, 5.00035)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile5" parent="Playground/Tiles/Path1" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0690985, 0, 0.2588989, 0, 1.1, 0, -0.2588989, 0, 1.0690985, 2.707598, -0.04306498, 8.079966)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="quiz_tile" parent="Playground/Tiles/Path1" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(0.36996377, 0, 1.1415458, 0, 1.1999999, 0, -1.1415458, 0, 0.36996377, 1.7384573, -0.030707508, 11.31166)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="negative_tile" parent="Playground/Tiles/Path1" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(0.9456513, 0, -0.5619108, 0, 1.1, 0, 0.5619108, 0, 0.9456513, 0.82661235, -0.15, 14.798304)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="split_tile" parent="Playground/Tiles/Path1" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.15311003, -0.15, 17.115469)
+path_options = [NodePath("../../Path3/tile8"), NodePath("../../Path4/shop_tile")]
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="Path2" type="Node3D" parent="Playground/Tiles"]
+
+[node name="split_tile11" parent="Playground/Tiles/Path2" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 5.620549, -0.15, -1.4980884)
+path_options = [NodePath("../../Path1/tile4"), NodePath("../tile8")]
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="tile8" parent="Playground/Tiles/Path2" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0998302, 0, 0.019332016, 0, 1.1, 0, -0.019332016, 0, 1.0998302, 1.6031947, -0.15, -1.4098428)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="tile9" parent="Playground/Tiles/Path2" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0985185, 0, 0.057071064, 0, 1.1, 0, -0.057071064, 0, 1.0985185, -3.1606565, -0.15, -1.299031)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="split_tile12" parent="Playground/Tiles/Path2" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -7.394715, -0.15, -1.4060093)
+path_options = [NodePath("../../Path14/quiz_tile"), NodePath("../../Path16/tile30")]
+game_manager = NodePath("../../../game_manager")
+is_not_cam_switch = true
+new_cam_x = 5.0
+
+[node name="Path3" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile8" parent="Playground/Tiles/Path3" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0852575, 0, 0.1794881, 0, 1.1, 0, -0.1794881, 0, 1.0852575, 3.5595014, -0.15, 16.550066)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile9" parent="Playground/Tiles/Path3" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0838407, 0, 0.18785472, 0, 1.1, 0, -0.18785472, 0, 1.0838407, 7.0520196, -0.15, 15.868925)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../StartPath/tile")
+is_last_path_tile = true
+new_cam_x = -5.0
+
+[node name="Path4" type="Node3D" parent="Playground/Tiles"]
+
+[node name="shop_tile" parent="Playground/Tiles/Path4" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("12_760wy")]
+transform = Transform3D(-1.1, 0, -1.6609539e-07, 0, 1.1, 0, 1.6609539e-07, 0, -1.1, -0.11191273, -0.15, 20.819569)
+shop_items = Array[ExtResource("13_hjeb1")]([ExtResource("19_ucu16"), ExtResource("19_68inm"), ExtResource("20_ne8fr"), ExtResource("24_dpjon")])
+seller_model = ExtResource("16_ne8fr")
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path15/tile25")
+new_cam_z = -3.5
+
+[node name="tile5" parent="Playground/Tiles/Path4" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.37764502, -0.15, 24.448103)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="quiz_tile" parent="Playground/Tiles/Path4" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(0.06807318, 0, 1.1980675, 0, 1.1999999, 0, -1.1980675, 0, 0.06807318, -0.5956335, -0.15, 28.864437)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="negative_tile" parent="Playground/Tiles/Path4" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.8483448, -0.15, 32.96116)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile8" parent="Playground/Tiles/Path4" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.9273443, -0.15, 36.793087)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="split_tile5" parent="Playground/Tiles/Path4" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.84768325, -0.15, 41.12426)
+path_options = [NodePath("../../Path5/tile9"), NodePath("../../Path6/tile8")]
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="Path5" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile9" parent="Playground/Tiles/Path5" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.42615175, -0.15, 38.466652)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile10" parent="Playground/Tiles/Path5" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 1.9082484, -0.15, 35.25241)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="negative_tile" parent="Playground/Tiles/Path5" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(-0.97265375, 0, 0.51375544, 0, 1.1, 0, -0.51375544, 0, -0.97265375, 3.6302452, -0.15, 32.088978)
+is_coin_remove = true
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="quiz_tile" parent="Playground/Tiles/Path5" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(0.47995818, 0, 1.0998365, 0, 1.1999999, 0, -1.0998365, 0, 0.47995818, 4.997348, -0.028445393, 28.773975)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile11" parent="Playground/Tiles/Path5" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 6.91401, -0.15, 24.441202)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile14" parent="Playground/Tiles/Path5" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 8.492466, -0.15, 21.038176)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile15" parent="Playground/Tiles/Path5" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.189912, -0.15, 17.65461)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../StartPath/tile")
+is_last_path_tile = true
+new_cam_z = 3.5
+
+[node name="Path6" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile8" parent="Playground/Tiles/Path6" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.921669, -0.15, 43.107956)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../LowerMiddlePath/tile9")
+is_last_path_tile = true
+new_cam_z = -3.5
+
+[node name="Path7" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile9" parent="Playground/Tiles/Path7" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.9598581, 0, -0.5372824, 0, 1.1, 0, 0.5372824, 0, 0.9598581, 10.443589, -0.15, 40.367943)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile10" parent="Playground/Tiles/Path7" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.9762256, 0, -0.5069355, 0, 1.1, 0, 0.5069355, 0, 0.9762256, 10.383637, -0.15, 37.085934)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="quiz_tile" parent="Playground/Tiles/Path7" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(-0.013194394, 0, -1.1999274, 0, 1.1999999, 0, 1.1999274, 0, -0.013194394, 10.363798, -0.15, 33.660217)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile12" parent="Playground/Tiles/Path7" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.96905255, 0, -0.52051634, 0, 1.1, 0, 0.52051634, 0, 0.96905255, 10.371978, -0.15, 30.081936)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile13" parent="Playground/Tiles/Path7" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.9449739, 0, -0.56304926, 0, 1.1, 0, 0.56304926, 0, 0.9449739, 10.36341, -0.15, 26.07779)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="negative_tile" parent="Playground/Tiles/Path7" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(-0.963845, 0, 0.5300974, 0, 1.1, 0, -0.5300974, 0, -0.963845, 10.398894, -0.15, 21.896421)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+is_last_path_tile = true
+new_cam_z = 3.5
+
+[node name="Path8" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile19" parent="Playground/Tiles/Path8" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 15.44141, -0.15, -4.413991)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile20" parent="Playground/Tiles/Path8" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 20.160715, -0.15, -4.5246143)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="quiz_tile" parent="Playground/Tiles/Path8" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(1.1998639, 0, 0.018073946, 0, 1.1999999, 0, -0.018073946, 0, 1.1998639, 25.666895, -0.15, -4.601758)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile22" parent="Playground/Tiles/Path8" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 31.03792, -0.15, -4.675147)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile23" parent="Playground/Tiles/Path8" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0963949, 0, 0.088984266, 0, 1.1, 0, -0.088984266, 0, 1.0963949, 36.160225, -0.15, -4.7730503)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../MiddleRightUpPath/tile25")
+is_last_path_tile = true
+new_cam_x = -5.0
+
+[node name="Path9" type="Node3D" parent="Playground/Tiles"]
+
+[node name="event_tile" parent="Playground/Tiles/Path9" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("4_6b056")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.52379, -0.15, -7.5070515)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile18" parent="Playground/Tiles/Path9" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.628363, -0.15, -11.571557)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="negative_tile" parent="Playground/Tiles/Path9" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(-1.0998876, 0, 0.015723193, 0, 1.1, 0, -0.015723193, 0, -1.0998876, 10.763549, -0.15, -15.201114)
+is_coin_remove = true
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="split_tile3" parent="Playground/Tiles/Path9" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.760284, -0.15, -18.883957)
+path_options = [NodePath("../../Path11/tile17"), NodePath("../../Path10/tile20")]
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="Path10" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile20" parent="Playground/Tiles/Path10" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.585914, -0.15, -21.968796)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile21" parent="Playground/Tiles/Path10" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.434027, -0.15, -25.395292)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="split_tile4" parent="Playground/Tiles/Path10" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.252498, -0.15, -28.794353)
+path_options = [NodePath("../../Path12/tile18"), NodePath("../../Path13/tile25")]
+game_manager = NodePath("../../../game_manager")
+is_not_cam_switch = true
+new_cam_z = 3.5
+
+[node name="Path11" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile17" parent="Playground/Tiles/Path11" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 9.369478, -0.15, -14.261637)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile18" parent="Playground/Tiles/Path11" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 8.067491, -0.15, -10.181382)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile19" parent="Playground/Tiles/Path11" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 6.652388, -0.15, -5.4396024)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path2/split_tile11")
+is_last_path_tile = true
+new_cam_z = -3.5
+
+[node name="Path12" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile18" parent="Playground/Tiles/Path12" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 8.717471, -0.15, -26.595402)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile19" parent="Playground/Tiles/Path12" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 6.4202356, -0.15, -23.086208)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="negative_tile" parent="Playground/Tiles/Path12" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(0.94492483, 0, -0.56313187, 0, 1.1, 0, 0.56313187, 0, 0.94492483, 4.4955244, -0.15, -19.937735)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="event_tile" parent="Playground/Tiles/Path12" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("4_6b056")]
+transform = Transform3D(1.0985768, 0, -0.055939846, 0, 1.1, 0, 0.055939846, 0, 1.0985768, 1.8893051, -0.15, -15.760636)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile22" parent="Playground/Tiles/Path12" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0980191, 0, -0.06598442, 0, 1.1, 0, 0.06598442, 0, 1.0980191, -0.6467979, -0.15, -11.754307)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile23" parent="Playground/Tiles/Path12" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -2.8132858, -0.15, -8.268993)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="quiz_tile" parent="Playground/Tiles/Path12" node_paths=PackedStringArray("hsd_campus", "game_manager", "next_tile") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(0.6552171, 0, 1.0053312, 0, 1.2, 0, -1.0053312, 0, 0.6552171, -5.2758493, -0.15, -4.4260974)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path2/split_tile12")
+is_last_path_tile = true
+new_cam_z = -3.5
+
+[node name="Path13" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile25" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 5.9694242, -0.15, -28.760891)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="tile26" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 1.1021862, -0.15, -28.838432)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="negative_tile" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(-0.54238427, 0, -0.9569845, 0, 1.1, 0, 0.9569845, 0, -0.54238427, -3.8595648, -0.15, -28.87089)
+is_coin_remove = true
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="RandomShop1" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("27_3caeh")]
+transform = Transform3D(0.009651363, 0, -1.2099617, 0, 1.2100003, 0, 1.2099617, 0, 0.009651363, -7.3281574, -0.15, -28.752678)
+available_item_pool = Array[ExtResource("13_hjeb1")]([ExtResource("14_0b1ba"), ExtResource("16_hjeb1"), ExtResource("19_ucu16"), ExtResource("19_68inm"), ExtResource("20_ne8fr"), ExtResource("24_dpjon")])
+seller_model = ExtResource("16_ne8fr")
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="event_tile" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("4_6b056")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -11.704037, -0.15, -28.780426)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="tile30" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0900172, 0, -0.14786044, 0, 1.1, 0, 0.14786044, 0, 1.0900172, -10.771999, -0.15, -25.899973)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile31" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.09207, 0, -0.13184556, 0, 1.1, 0, 0.13184556, 0, 1.09207, -9.698948, -0.15, -22.907974)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile32" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0807742, 0, -0.20476146, 0, 1.1, 0, 0.20476146, 0, 1.0807742, -8.700136, -0.15, -20.192858)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="quiz_tile" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(-0.29524207, 0, 1.1631131, 0, 1.2, 0, -1.1631131, 0, -0.29524207, -7.7603354, -0.16579273, -17.280024)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile34" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.95696557, 0, 0.5424177, 0, 1.1, 0, -0.5424177, 0, 0.95696557, -7.476885, -0.15, -13.631465)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile35" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.94175494, 0, 0.56841683, 0, 1.0999999, 0, -0.56841683, 0, 0.94175494, -7.451215, -0.15, -9.7762165)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="negative_tile2" parent="Playground/Tiles/Path13" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(0.9682975, 0, 0.5219196, 0, 1.1, 0, -0.5219196, 0, 0.9682975, -7.384241, -0.15, -6.277232)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path2/split_tile12")
+is_last_path_tile = true
+new_cam_z = -3.5
+
+[node name="Path14" type="Node3D" parent="Playground/Tiles"]
+
+[node name="quiz_tile" parent="Playground/Tiles/Path14" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(0.008251788, 0, 1.1999717, 0, 1.2, 0, -1.1999717, 0, 0.008251788, -7.4774513, -0.15, 1.8398595)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile25" parent="Playground/Tiles/Path14" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -7.6208553, -0.15, 5.16062)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="negative_tile" parent="Playground/Tiles/Path14" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -7.760126, -0.15, 8.439823)
+is_coin_remove = true
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile28" parent="Playground/Tiles/Path14" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -7.932036, -0.15, 11.56594)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile29" parent="Playground/Tiles/Path14" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -8.046106, -0.15, 14.314613)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path15/tile25")
+is_last_path_tile = true
+new_cam_z = -3.5
+
+[node name="Path15" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile25" parent="Playground/Tiles/Path15" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -8.193773, -0.15, 17.067986)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path2/split_tile12")
+new_cam_x = -5.0
+
+[node name="event_tile8" parent="Playground/Tiles/Path15" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("4_6b056")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -4.158758, -0.15, 17.299343)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path1/split_tile")
+is_last_path_tile = true
+new_cam_x = -5.0
+
+[node name="Path17" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile28" parent="Playground/Tiles/Path17" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -21.407928, -0.15, 16.990063)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile29" parent="Playground/Tiles/Path17" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -17.127539, -0.15, 17.22677)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="shop_tile" parent="Playground/Tiles/Path17" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("12_760wy")]
+transform = Transform3D(-4.8082526e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.8082526e-08, -12.642459, -0.15, 17.253218)
+shop_items = Array[ExtResource("13_hjeb1")]([ExtResource("19_ucu16"), ExtResource("19_68inm"), ExtResource("20_ne8fr"), ExtResource("24_dpjon")])
+seller_model = ExtResource("16_ne8fr")
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path15/tile25")
+is_last_path_tile = true
+new_cam_x = -5.0
+
+[node name="Path16" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile30" parent="Playground/Tiles/Path16" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -10.729399, -0.15, -1.5494747)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="tile31" parent="Playground/Tiles/Path16" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -15.055621, -0.15, -1.6696281)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="negative_tile" parent="Playground/Tiles/Path16" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(-0.028142113, 0, -1.09964, 0, 1.1, 0, 1.09964, 0, -0.028142113, -19.843193, -0.15, -1.6540623)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="event_tile" parent="Playground/Tiles/Path16" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("4_6b056")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -24.695724, -0.15, -1.8748455)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="tile34" parent="Playground/Tiles/Path16" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -24.989075, -0.15, 1.1610665)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile35" parent="Playground/Tiles/Path16" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -25.28354, -0.15, 5.093577)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="quiz_tile" parent="Playground/Tiles/Path16" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(0.03779754, 0, 1.1994046, 0, 1.2, 0, -1.1994046, 0, 0.03779754, -25.446405, -0.15, 9.124418)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile37" parent="Playground/Tiles/Path16" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -25.63214, -0.15, 12.669698)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="split_tile5" parent="Playground/Tiles/Path16" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -25.680042, -0.15, 16.895618)
+path_options = [NodePath("../../Path17/tile28"), NodePath("../../Path18/tile39")]
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="Path18" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile39" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -24.96071, -0.15, 20.076843)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile40" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -24.07322, -0.15, 23.594223)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile41" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -24.022453, -0.15, 28.120996)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="shop_tile" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("12_760wy")]
+transform = Transform3D(-1.1, 0, 1.6609539e-07, 0, 1.1, 0, -1.6609539e-07, 0, -1.1, -24.220978, -0.15, 33.109623)
+shop_items = Array[ExtResource("13_hjeb1")]([ExtResource("19_ucu16"), ExtResource("19_68inm"), ExtResource("20_ne8fr"), ExtResource("24_dpjon")])
+seller_model = ExtResource("16_ne8fr")
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path15/tile25")
+new_cam_z = -3.5
+
+[node name="split_tile5" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, -24.303, -0.15, 37.393)
+path_options = [NodePath("../negative_tile"), NodePath("../TeleportTile")]
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="TeleportTile" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("teleport_destination", "animation_destination", "game_manager", "next_tile") instance=ExtResource("27_760wy")]
+transform = Transform3D(0.9787614, 0, 0.50202215, 0, 1.1, 0, -0.50202215, 0, 0.9787614, -27.551708, -0.15, 39.99614)
+teleport_destination = NodePath("../../MiddleRightUpPath/TeleportTile")
+animation_destination = NodePath("../../../HelperPositions/bottomLeftTeleportEntry")
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../negative_tile")
+is_not_cam_switch = false
+new_cam_z = -3.5
+
+[node name="negative_tile" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -24.29907, -0.15, 42.33571)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="event_tile" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("4_6b056")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -24.268812, -0.15, 48.304504)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = -3.5
+
+[node name="tile46" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -20.354864, -0.15, 47.805416)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile47" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -15.4934635, -0.15, 47.16699)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile48" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -11.504828, -0.15, 46.638283)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="quiz_tile" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(1.1893893, 0, 0.15922669, 0, 1.2, 0, -0.15922669, 0, 1.1893893, -7.484556, -0.15, 45.974342)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile50" parent="Playground/Tiles/Path18" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -4.162346, -0.15, 45.425377)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../LowerMiddlePath/tile9")
+is_last_path_tile = true
+new_cam_x = -5.0
+
+[node name="LowerMiddlePath" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile9" parent="Playground/Tiles/LowerMiddlePath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.9844387, -0.15, 45.015583)
+game_manager = NodePath("../../../game_manager")
+is_not_cam_switch = true
+new_cam_x = -5.0
+
+[node name="tile10" parent="Playground/Tiles/LowerMiddlePath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.9986733, -0.15, 44.568336)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile11" parent="Playground/Tiles/LowerMiddlePath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 3.9391646, -0.15, 44.061543)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile12" parent="Playground/Tiles/LowerMiddlePath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 7.0521393, -0.15, 43.362854)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="split_tile7" parent="Playground/Tiles/LowerMiddlePath" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.519073, -0.15, 42.875385)
+path_options = [NodePath("../../Path7/tile9"), NodePath("../../LowerRightPath/tile15")]
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="LowerRightPath" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile15" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.688999, -0.15, 42.406048)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile16" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 17.567215, -0.15, 41.721977)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="negative_tile" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("5_hqwwx")]
+transform = Transform3D(-0.18369174, 0, 1.084554, 0, 1.1, 0, -1.084554, 0, -0.18369174, 21.22809, -0.15, 41.155357)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="quiz_tile" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(1.1871116, 0, 0.17540324, 0, 1.2, 0, -0.17540324, 0, 1.1871116, 25.79768, -0.15, 40.428886)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile19" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 30.331814, -0.15, 39.72429)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile20" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 35.1706, -0.15, 39.015663)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="event_tile" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("4_6b056")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 40.954105, -0.15, 38.03154)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = -5.0
+
+[node name="tile22" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 40.776142, -0.15, 32.06889)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="RandomShop2" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("27_3caeh")]
+transform = Transform3D(-6.394431e-08, 0, 1.331, 0, 1.331, 0, -1.331, 0, -6.394431e-08, 40.453907, -0.15, 26.958067)
+available_item_pool = Array[ExtResource("13_hjeb1")]([ExtResource("14_0b1ba"), ExtResource("16_hjeb1"), ExtResource("19_ucu16"), ExtResource("19_68inm"), ExtResource("20_ne8fr"), ExtResource("24_dpjon")])
+seller_model = ExtResource("16_ne8fr")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile24" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 40.24633, -0.15, 20.97221)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="split_tile8" parent="Playground/Tiles/LowerRightPath" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 39.999256, -0.15, 15.043126)
+path_options = [NodePath("../../MiddleRightPath/tile15"), NodePath("../../MiddleRightUpPath/tile21")]
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="MiddleRightPath" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile15" parent="Playground/Tiles/MiddleRightPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 35.797474, -0.15, 15.1064)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_x = 5.0
+
+[node name="quiz_tile2" parent="Playground/Tiles/MiddleRightPath" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 30.362139, -0.15, 15.191581)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="event_tile" parent="Playground/Tiles/MiddleRightPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("4_6b056")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 26.083185, -0.15, 15.195626)
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="quiz_tile" parent="Playground/Tiles/MiddleRightPath" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(-1.1999999, 0, -1.0490733e-07, 0, 1.1999999, 0, 1.0490733e-07, 0, -1.1999999, 20.652742, -0.15, 15.366143)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="tile19" parent="Playground/Tiles/MiddleRightPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 17.214798, -0.15, 15.0855055)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_x = 5.0
+
+[node name="tile20" parent="Playground/Tiles/MiddleRightPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 13.111855, -0.15, 15.009974)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../StartPath/tile")
+is_last_path_tile = true
+new_cam_x = 5.0
+
+[node name="MiddleRightUpPath" type="Node3D" parent="Playground/Tiles"]
+
+[node name="tile21" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.9410499, 0, 0.5695834, 0, 1.1, 0, -0.5695834, 0, 0.9410499, 39.729122, -0.15, 11.717397)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_z = 3.5
+
+[node name="tile22" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.94061214, 0, 0.57030594, 0, 1.1, 0, -0.57030594, 0, 0.94061214, 39.64764, -0.15, 8.10962)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_z = 3.5
+
+[node name="quiz_tile" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(-0.041691072, 0, 1.1992756, 0, 1.2, 0, -1.1992756, 0, -0.041691072, 39.62327, -0.15, 4.2171206)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="tile24" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.9410697, 0, 0.5695506, 0, 1.1, 0, -0.5695506, 0, 0.9410697, 39.419632, -0.15, -0.28138763)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_z = 3.5
+
+[node name="tile25" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 39.40412, -0.15, -4.91123)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+is_not_cam_switch = true
+new_cam_z = 3.5
+
+[node name="tile26" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.98253596, 0, 0.49459392, 0, 1.1, 0, -0.49459392, 0, 0.98253596, 39.34683, -0.15, -9.414608)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_z = 3.5
+
+[node name="tile27" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.9629553, 0, 0.53171146, 0, 1.1, 0, -0.53171146, 0, 0.9629553, 39.319923, -0.15, -14.262232)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_z = 3.5
+
+[node name="event_tile" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("4_6b056")]
+transform = Transform3D(1.0044466, 0, 0.44842732, 0, 1.1, 0, -0.44842732, 0, 1.0044466, 39.41441, -0.15, -19.166866)
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="split_tile9" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.0766376, 0, 0.55222434, 0, 1.21, 0, -0.55222434, 0, 1.0766376, 39.76, -0.15, -24.888)
+path_options = [NodePath("../tile30"), NodePath("../TeleportTile")]
+game_manager = NodePath("../../../game_manager")
+new_cam_z = 3.5
+
+[node name="TeleportTile" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("teleport_destination", "animation_destination", "game_manager", "next_tile") instance=ExtResource("27_760wy")]
+transform = Transform3D(1.0766375, 0, 0.55222434, 0, 1.2099999, 0, -0.55222434, 0, 1.0766375, 35.189194, -0.15000048, -27.635374)
+teleport_destination = NodePath("../../Path18/TeleportTile")
+animation_destination = NodePath("../../../HelperPositions/topRightTeleportEntry")
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../tile30")
+is_not_cam_switch = false
+new_cam_x = 5.0
+
+[node name="tile30" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.97101694, 0, 0.5168425, 0, 1.1, 0, -0.5168425, 0, 0.97101694, 40.101936, -0.15, -29.71292)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_z = 3.5
+
+[node name="tile31" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.9662588, 0, 0.52568436, 0, 1.1, 0, -0.52568436, 0, 0.9662588, 40.36988, -0.15, -34.814896)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_z = 3.5
+
+[node name="tile32" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0542371, 0, 0.3139812, 0, 1.1, 0, -0.3139812, 0, 1.0542371, 40.76097, -0.15, -38.543076)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_z = 3.5
+
+[node name="tile33" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.05921, 0, 0.29677323, 0, 1.1, 0, -0.29677323, 0, 1.05921, 36.92828, -0.15, -37.48461)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_x = 5.0
+
+[node name="RandomShop3" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager") groups=["Tile"] instance=ExtResource("27_3caeh")]
+transform = Transform3D(-1.1372244, 0, -0.6915794, 0, 1.3310001, 0, 0.6915794, 0, -1.1372244, 32.338, -0.15, -35.80578)
+available_item_pool = Array[ExtResource("13_hjeb1")]([ExtResource("14_0b1ba"), ExtResource("16_hjeb1"), ExtResource("19_ucu16"), ExtResource("19_68inm"), ExtResource("20_ne8fr"), ExtResource("24_dpjon")])
+seller_model = ExtResource("16_ne8fr")
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="tile35" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0564783, 0, -0.30635554, 0, 1.1, 0, 0.30635554, 0, 1.0564783, 29.685232, -0.15, -37.43148)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_x = 5.0
+
+[node name="tile36" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0986145, 0, -0.05519205, 0, 1.1, 0, 0.05519205, 0, 1.0986145, 23.732073, -0.15, -37.810314)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_x = 5.0
+
+[node name="quiz_tile2" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("hsd_campus", "game_manager") groups=["Tile"] instance=ExtResource("6_g8fns")]
+transform = Transform3D(-1.1996413, 0, 0.029339673, 0, 1.1999999, 0, -0.029339673, 0, -1.1996413, 18.944374, -0.15, -37.97408)
+hsd_campus = NodePath("../../../..")
+game_manager = NodePath("../../../game_manager")
+new_cam_x = 5.0
+
+[node name="tile38" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0970796, 0, -0.08010248, 0, 1.1, 0, 0.08010248, 0, 1.0970796, 14.173115, -0.15, -38.208652)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_x = 5.0
+
+[node name="tile39" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(1.0993333, 0, -0.03829351, 0, 1.1, 0, 0.03829351, 0, 1.0993333, 10.104855, -0.15, -38.418274)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path5/tile15")
+new_cam_x = 5.0
+
+[node name="tile40" parent="Playground/Tiles/MiddleRightUpPath" node_paths=PackedStringArray("game_manager", "next_tile") groups=["Tile"] instance=ExtResource("3_ktxt5")]
+transform = Transform3D(0.95385426, 0, -0.54787046, 0, 1.1, 0, 0.54787046, 0, 0.95385426, 10.100004, -0.15, -34.06258)
+game_manager = NodePath("../../../game_manager")
+next_tile = NodePath("../../Path10/split_tile4")
+is_last_path_tile = true
+new_cam_z = -3.5
+
+[node name="split_tile9" parent="Playground/Tiles" node_paths=PackedStringArray("path_options", "game_manager") groups=["Tile"] instance=ExtResource("6_qxa6w")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 10.601194, -0.15, -4.605689)
+path_options = [NodePath("../Path8/tile19"), NodePath("../Path9/event_tile")]
+game_manager = NodePath("../../game_manager")
+new_cam_z = 3.5
+
+[node name="Players" type="Node3D" parent="Playground"]
+
+[node name="board_logic" type="Node3D" parent="Playground"]
+script = ExtResource("17_iqo5r")
+
+[node name="dice" parent="Playground" instance=ExtResource("1_pd1ce")]
+
+[node name="Cams" type="Node3D" parent="Playground"]
+
+[node name="GameCam" parent="Playground/Cams" node_paths=PackedStringArray("game_manager") groups=["camera"] instance=ExtResource("10_6b056")]
+game_manager = NodePath("../../game_manager")
+
+[node name="path_manager" parent="Playground" instance=ExtResource("12_hqwwx")]
+
+[node name="star_tile_manager" parent="Playground" instance=ExtResource("15_2503h")]
+
+[node name="item_factory" type="Node3D" parent="Playground"]
+script = ExtResource("23_6mu8b")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Playground"]
+environment = SubResource("Environment_t4yr6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Playground"]
+transform = Transform3D(0.17436247, -0.89238894, 0.41622084, 0.16162442, 0.44290015, 0.88188267, -0.9713266, -0.08649578, 0.22145699, 2.307878, 4.5926876, -1.0728626)
+
+[node name="BoardAudioPlayer" type="AudioStreamPlayer" parent="Playground"]
+volume_db = -11.0
+pitch_scale = 1.01
+script = ExtResource("38_68inm")
+
+[node name="TileAudioPlayer" type="AudioStreamPlayer" parent="Playground" groups=["TileAudio"]]
+volume_db = 5.0
+script = ExtResource("37_760wy")
+
+[node name="HsdFixed" parent="Playground" instance=ExtResource("41_ne8fr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1038802, -1.2050002, -1.0671448)
+
+[node name="HelperPositions" type="Node3D" parent="Playground"]
+
+[node name="topRightTeleportEntry" type="Node3D" parent="Playground/HelperPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.612823, 2.3841858e-07, -24.326574)
+
+[node name="bottomLeftTeleportEntry" type="Node3D" parent="Playground/HelperPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6791, -1.8569701, 36.43563)
+
+[connection signal="on_entered" from="Playground/Tiles/Path1/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path4/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path5/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path7/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path9/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path12/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path13/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path13/negative_tile2" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path14/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path16/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/Path18/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]
+[connection signal="on_entered" from="Playground/Tiles/LowerRightPath/negative_tile" to="Playground/game_manager" method="_on_negative_tile_on_entered"]

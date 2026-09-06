@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://cynm68y3wwuma"]
+
+[ext_resource type="Texture2D" uid="uid://detxnyklw7nxf" path="res://assets/textures/biggame/hsd_campus/tiles/QuizTileLampAlbedo.png" id="1_dbvq5"]
+[ext_resource type="Texture2D" uid="uid://dcewt7uec28l2" path="res://assets/textures/biggame/hsd_campus/tiles/QuizTileLampEmission.png" id="2_iq7au"]
+[ext_resource type="Texture2D" uid="uid://dqx48twx7js6x" path="res://assets/textures/biggame/hsd_campus/tiles/QuizTileLampMetallic.png" id="3_dbvq5"]
+[ext_resource type="Texture2D" uid="uid://dmkgnm0ic5lax" path="res://assets/textures/biggame/hsd_campus/tiles/QuizTileLampRoughness.png" id="4_t2gky"]
+
+[resource]
+albedo_texture = ExtResource("1_dbvq5")
+metallic = 1.0
+metallic_texture = ExtResource("3_dbvq5")
+roughness_texture = ExtResource("4_t2gky")
+emission_enabled = true
+emission_texture = ExtResource("2_iq7au")

@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6t67sifcwb70"]
+
+[ext_resource type="Script" uid="uid://jt2injuhu6ci" path="res://scripts/biggame/hsd_campus/manager/player_ui.gd" id="1_i7lha"]
+[ext_resource type="Texture2D" uid="uid://b3hgm1jk7agh1" path="res://assets/sprites/character_icons/player_blue.png" id="3_nvenq"]
+[ext_resource type="Texture2D" uid="uid://bl77eg5ng8an1" path="res://assets/sprites/biggame/hsd_campus/Credit.png" id="4_2hlnw"]
+[ext_resource type="Texture2D" uid="uid://b27ldaesw051l" path="res://assets/sprites/biggame/hsd_campus/Bachlor.png" id="5_6rn8x"]
+
+[node name="PlayerPanel" type="MarginContainer" node_paths=PackedStringArray("coins_label", "stars_label", "background", "avatar_icon", "item_container")]
+offset_right = 285.0
+offset_bottom = 168.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_i7lha")
+coins_label = NodePath("VBoxContainer/Stats/MarginContainer/HBox/GridContainer/CreditPoints")
+stars_label = NodePath("VBoxContainer/Stats/MarginContainer/HBox/GridContainer/Bachlorarbeiten")
+background = NodePath("VBoxContainer/Stats")
+avatar_icon = NodePath("VBoxContainer/Stats/MarginContainer/HBox/Avatar")
+item_container = NodePath("VBoxContainer/Items/MarginContainer/HBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Stats" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"PlayerInfoIngameScore"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Stats"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/Stats/MarginContainer"]
+layout_mode = 2
+
+[node name="Avatar" type="TextureRect" parent="VBoxContainer/Stats/MarginContainer/HBox"]
+layout_mode = 2
+texture = ExtResource("3_nvenq")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/Stats/MarginContainer/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/Stats/MarginContainer/HBox"]
+layout_mode = 2
+columns = 2
+
+[node name="CreditPoints" type="Label" parent="VBoxContainer/Stats/MarginContainer/HBox/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "100"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Stats/MarginContainer/HBox/GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_2hlnw")
+expand_mode = 2
+
+[node name="Bachlorarbeiten" type="Label" parent="VBoxContainer/Stats/MarginContainer/HBox/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "100"
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/Stats/MarginContainer/HBox/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_6rn8x")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Stats/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Items" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Items"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Items/MarginContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Item1" type="TextureRect" parent="VBoxContainer/Items/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 4
+
+[node name="Item2" type="TextureRect" parent="VBoxContainer/Items/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 4
+
+[node name="Item3" type="TextureRect" parent="VBoxContainer/Items/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 4
+
+[node name="Item4" type="TextureRect" parent="VBoxContainer/Items/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 4

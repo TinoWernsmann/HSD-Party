@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://bekodtih4g0ar"]
+
+[ext_resource type="Script" uid="uid://0jwv3cdiao1i" path="res://scripts/minigame/debug/player_input_panel_controller.gd" id="1_8sqbo"]
+
+[node name="PlayerInputPanel" type="PanelContainer" node_paths=PackedStringArray("player_nr_label", "character_icon_container", "points_label", "panel_container")]
+size_flags_horizontal = 3
+theme_type_variation = &"PlayerInfoIngameScore"
+script = ExtResource("1_8sqbo")
+player_nr_label = NodePath("MarginContainer/VBoxContainer/PlayerNr")
+character_icon_container = NodePath("MarginContainer/VBoxContainer/HBoxContainer2")
+points_label = NodePath("MarginContainer/VBoxContainer/Points")
+panel_container = NodePath(".")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="PlayerNr" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Spieler 1"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sub" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="Add" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="Points" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Sub" to="." method="_on_sub_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Add" to="." method="_on_add_pressed"]

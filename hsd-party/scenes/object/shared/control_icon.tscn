@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://binw7e3iccy16"]
+
+[ext_resource type="Texture2D" uid="uid://b2ilrjpryh85y" path="res://icon.svg" id="1_yfk8t"]
+[ext_resource type="Script" uid="uid://bstv7jo6u35br" path="res://scripts/shared/control_icon.gd" id="2_cv2h7"]
+
+[node name="ControlIcon" type="TextureRect" node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_yfk8t")
+expand_mode = 2
+script = ExtResource("2_cv2h7")
+texture_rect = NodePath(".")

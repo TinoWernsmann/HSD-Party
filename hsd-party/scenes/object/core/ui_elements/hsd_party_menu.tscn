@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://ckiex5gbe8m4d"]
+
+[ext_resource type="Theme" uid="uid://djhoomfljysxa" path="res://ressources/main_theme.tres" id="1_p4jav"]
+[ext_resource type="Script" uid="uid://bb88taxebbho5" path="res://scripts/core/controller/hsd_party_menu_controller.gd" id="1_u2sb7"]
+[ext_resource type="AudioStream" uid="uid://bcyfaed7x8u0p" path="res://assets/music/hsdparty_main.ogg" id="2_pfarf"]
+[ext_resource type="Texture2D" uid="uid://d3sm84tygdajg" path="res://assets/sprites/ui/menu/menuScreen.png" id="3_gk0o8"]
+[ext_resource type="Shader" uid="uid://b1n6toajjg3j4" path="res://ressources/shader/shared/blur_shader.gdshader" id="4_551k5"]
+[ext_resource type="Texture2D" uid="uid://dkh4jbr6g5ld1" path="res://assets/sprites/ui/menu/Hsd.png" id="5_k0a7o"]
+[ext_resource type="Texture2D" uid="uid://duii3rp8dmg6v" path="res://assets/sprites/ui/menu/Party.png" id="6_551k5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qbbpp"]
+shader = ExtResource("4_551k5")
+shader_parameter/amount = 1.0000000475
+
+[node name="HSDPartyMenu" type="Control" node_paths=PackedStringArray("blur_color_rect", "start_screnn_content", "hsd_label", "party_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_p4jav")
+script = ExtResource("1_u2sb7")
+blur_color_rect = NodePath("ColorRect")
+start_screnn_content_apear_time = 3.5
+start_screnn_content = NodePath("StartScreen")
+hsd_label_apear_time = 1.5
+hsd_label = NodePath("HsdText")
+party_label_apear_time = 2.4
+party_label = NodePath("PartyText")
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.22644
+offset_right = 240.22656
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_gk0o8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qbbpp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HsdText" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 128.0
+offset_right = 959.0
+offset_bottom = 372.0
+texture = ExtResource("5_k0a7o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PartyText" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 121.0
+offset_right = 1457.0
+offset_bottom = 377.0
+rotation = 0.028032005
+texture = ExtResource("6_551k5")
+
+[node name="StartScreen" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = -35.0
+offset_right = 60.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OfflineButton" type="Button" parent="StartScreen"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Offline Spielen"
+
+[node name="OnlineButton" type="Button" parent="StartScreen"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Online Spielen"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_pfarf")
+volume_db = -6.0
+autoplay = true
+
+[connection signal="pressed" from="StartScreen/OfflineButton" to="." method="_on_offline_button_pressed"]
+[connection signal="pressed" from="StartScreen/OnlineButton" to="." method="_on_online_button_pressed"]

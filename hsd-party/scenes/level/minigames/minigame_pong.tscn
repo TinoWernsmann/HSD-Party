@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://4o24jac3vsin"]
+
+[ext_resource type="Script" uid="uid://ddumutwl4h7qe" path="res://scripts/minigame/pong/pong.gd" id="1_b0yen"]
+[ext_resource type="PackedScene" uid="uid://bt3djs6slnuoc" path="res://scenes/object/minigame/pong/2_player_playground.tscn" id="2_ag07y"]
+[ext_resource type="Texture2D" uid="uid://dgwm1v46ut20s" path="res://assets/sprites/minigame/pong/background.png" id="2_fh5xd"]
+[ext_resource type="PackedScene" uid="uid://fqsw81ylyil6" path="res://scenes/object/minigame/pong/3_player_playground.tscn" id="3_hhs2g"]
+[ext_resource type="PackedScene" uid="uid://cw8dsvbyl3gc3" path="res://scenes/object/minigame/pong/4_player_playground.tscn" id="4_1d72u"]
+[ext_resource type="PackedScene" uid="uid://0hmbw7pefak2" path="res://scenes/object/minigame/pong/ball.tscn" id="6_ag07y"]
+[ext_resource type="PackedScene" uid="uid://w8qup2kdy3iq" path="res://scenes/object/minigame/pong/score_info.tscn" id="7_hhs2g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh5xd"]
+bg_color = Color(0, 0, 0, 0.7058824)
+
+[node name="Pong" type="Node" node_paths=PackedStringArray("center_banner", "countdown_label", "timer_label", "right_score_container", "left_score_container", "cameras2d", "canvas_layers")]
+script = ExtResource("1_b0yen")
+playground_2_player = ExtResource("2_ag07y")
+playground_3_player = ExtResource("3_hhs2g")
+playground_4_player = ExtResource("4_1d72u")
+ball_scene = ExtResource("6_ag07y")
+score_info_scene = ExtResource("7_hhs2g")
+center_banner = NodePath("CanvasLayer/CenterBanner")
+countdown_label = NodePath("CanvasLayer/CenterBanner/MarginContainer/Countdown")
+timer_label = NodePath("CanvasLayer/Timer")
+right_score_container = NodePath("CanvasLayer/MarginContainer/Control/TopRight")
+left_score_container = NodePath("CanvasLayer/MarginContainer/Control/TopLeft")
+duration_in_seconds = 60
+cameras2d = [NodePath("Camera2D")]
+canvas_layers = [NodePath("CanvasLayer")]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(6, 6)
+texture = ExtResource("2_fh5xd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.5
+offset_right = 68.5
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderLarge"
+text = "120"
+horizontal_alignment = 1
+
+[node name="CenterBanner" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -65.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fh5xd")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterBanner"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Countdown" type="Label" parent="CanvasLayer/CenterBanner/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "120"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="TopLeft" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+offset_right = 360.0
+offset_bottom = 99.0
+theme_override_constants/separation = 20
+
+[node name="TopRight" type="HBoxContainer" parent="CanvasLayer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -426.0
+offset_bottom = 99.0
+grow_horizontal = 0
+theme_override_constants/separation = 20
+alignment = 2

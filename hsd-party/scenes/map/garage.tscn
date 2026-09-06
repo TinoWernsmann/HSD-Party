@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn8ljigffux5w"]
+
+[ext_resource type="PackedScene" uid="uid://bicrxba6lhyh1" path="res://assets/models/biggame/hsd_campus/map/Garage.glb" id="1_ev8tm"]
+
+[node name="Garage" instance=ExtResource("1_ev8tm")]
+
+[node name="Garage2" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6542, 1.7805495, -24.355705)
+
+[node name="Garage1" parent="." index="1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -39.25656, 1.7805457, 37.60389)

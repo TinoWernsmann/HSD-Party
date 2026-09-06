@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdtqsa8anp7m4"]
+
+[ext_resource type="Texture2D" uid="uid://cveholcsvb674" path="res://assets/sprites/minigame/pong/goal.png" id="1_1lw5y"]
+[ext_resource type="Texture2D" uid="uid://11ypq66hxi3h" path="res://assets/sprites/minigame/pong/borderlines.png" id="2_42w62"]
+[ext_resource type="Script" uid="uid://cly70tql3qeog" path="res://scripts/minigame/pong/goal.gd" id="3_hh2e1"]
+[ext_resource type="Script" uid="uid://do7mie4kw2dwy" path="res://scripts/minigame/pong/goal_collider.gd" id="4_42w62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7tyu"]
+size = Vector2(25.423492, 512)
+
+[node name="Goal" type="Node2D" node_paths=PackedStringArray("goal_effect_sprite")]
+script = ExtResource("3_hh2e1")
+goal_effect_sprite = NodePath("GoalEffect")
+
+[node name="GoalEffect" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(0, 46)
+rotation = 1.5707964
+scale = Vector2(1.2, 1)
+texture = ExtResource("1_1lw5y")
+
+[node name="GoalBackLine" type="Sprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(0.8, 1)
+texture = ExtResource("2_42w62")
+
+[node name="GoalCollider" type="StaticBody2D" parent="." node_paths=PackedStringArray("goal")]
+script = ExtResource("4_42w62")
+goal = NodePath("..")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="GoalCollider"]
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_m7tyu")

@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://0ljyihyaugt"]
+
+[ext_resource type="PackedScene" uid="uid://bn8m2okti83n4" path="res://assets/models/biggame/hsd_campus/map/HsdFixed.glb" id="1_70s0j"]
+[ext_resource type="ArrayMesh" uid="uid://ddma43wo1hwgt" path="res://assets/models/biggame/hsd_campus/map/PfadNeu.obj" id="2_jieug"]
+[ext_resource type="PackedScene" uid="uid://bw808dpos2d0e" path="res://assets/models/biggame/hsd_campus/arrow_sign/arrowSign.glb" id="2_q3wgi"]
+[ext_resource type="PackedScene" uid="uid://cn8ljigffux5w" path="res://scenes/map/garage.tscn" id="4_cw43w"]
+
+[node name="HsdFixed" instance=ExtResource("1_70s0j")]
+
+[node name="4" parent="." index="3"]
+transform = Transform3D(0.9379808, 0, -0.34668735, 0, 1, 0, 0.34668735, 0, 0.9379808, -14.947807, 4.4816475, 28.902903)
+
+[node name="6" parent="." index="5"]
+transform = Transform3D(0.9379808, 0, -0.34668735, 0, 1, 0, 0.34668735, 0, 0.9379808, -24.521542, 3.8041, -10.223023)
+
+[node name="pfad" parent="." index="7"]
+transform = Transform3D(0.9999999, 0, -0.0004464588, 0, 1, 0, 0.0004464588, 0, 0.9999999, -0.2740159, 0.1327424, 0.5908313)
+mesh = ExtResource("2_jieug")
+
+[node name="signs" type="Node3D" parent="." index="10"]
+
+[node name="arrowSign" parent="signs" index="0" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 9.471044, 2.2285662, -0.41470426)
+
+[node name="arrowSign5" parent="signs" index="1" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.012899008, 0, 0.4298065, 0, 0.43, 0, -0.4298065, 0, 0.012899008, 7.1609926, 2.2285662, -27.69406)
+
+[node name="arrowSign6" parent="signs" index="2" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.34141588, 0, 0.26141, 0, 0.43, 0, -0.26141, 0, -0.34141588, 6.721136, 2.2285662, -26.162119)
+
+[node name="arrowSign9" parent="signs" index="3" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.011091039, 0, 0.4298569, 0, 0.43, 0, -0.4298569, 0, 0.011091039, -10.271476, 2.2285662, -0.46139967)
+
+[node name="arrowSign10" parent="signs" index="4" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.42792204, 0, -0.042222068, 0, 0.43, 0, 0.042222068, 0, -0.42792204, -10.183058, 2.2285662, 1.0223234)
+
+[node name="arrowSign3" parent="signs" index="5" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.43, 0, 0, 0, 0.43, 0, 0, 0, 0.43, 7.644231, 2.2285662, -4.3874655)
+
+[node name="arrowSign7" parent="signs" index="6" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.37300482, 0, 0.2139332, 0, 0.43, 0, -0.2139332, 0, -0.37300482, 7.420929, 2.2285662, -17.479456)
+
+[node name="arrowSign8" parent="signs" index="7" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.42899245, 0, 0.029418781, 0, 0.43, 0, -0.029418781, 0, 0.42899245, 9.727404, 2.2285662, -17.479456)
+
+[node name="arrowSign4" parent="signs" index="8" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.022212157, 0, -0.42942593, 0, 0.43, 0, 0.42942593, 0, -0.022212157, 9.471044, 2.2285662, -3.730476)
+
+[node name="arrowSign2" parent="signs" index="9" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.0015460306, 0, 0.42999724, 0, 0.43, 0, -0.42999724, 0, 0.0015460306, 7.4157934, 2.2285662, -1.2318052)
+
+[node name="arrowSign11" parent="signs" index="10" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.0015460306, 0, 0.42999724, 0, 0.43, 0, -0.42999724, 0, 0.0015460306, 2.565336, 2.2285662, -0.6343962)
+
+[node name="arrowSign13" parent="signs" index="11" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.42736605, 0, 0.047521487, 0, 0.43, 0, -0.047521487, 0, -0.42736605, -1.8393052, 2.2285662, 20.354784)
+
+[node name="arrowSign15" parent="signs" index="12" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.42998177, 0, 0.0039625615, 0, 0.43, 0, -0.0039625615, 0, -0.42998177, -4.3209686, 2.2285662, 43.236942)
+
+[node name="arrowSign17" parent="signs" index="13" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.08157628, 0, -0.42219108, 0, 0.43000007, 0, 0.42219108, 0, 0.08157628, -3.382313, 2.2491755, 47.53822)
+
+[node name="arrowSign20" parent="signs" index="14" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.08157628, 0, -0.42219108, 0, 0.43000007, 0, 0.42219108, 0, 0.08157628, 8.186031, 2.2491746, 45.480637)
+
+[node name="arrowSign21" parent="signs" index="15" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.42990944, 0, -0.008825205, 0, 0.43000013, 0, 0.008825205, 0, 0.42990944, 9.117504, 2.249175, 42.983)
+
+[node name="arrowSign22" parent="signs" index="16" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.42990944, 0, -0.008825205, 0, 0.43000013, 0, 0.008825205, 0, 0.42990944, 38.76574, 2.249176, 16.875278)
+
+[node name="arrowSign24" parent="signs" index="17" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.42990944, 0, -0.008825205, 0, 0.43000013, 0, 0.008825205, 0, 0.42990944, 38.42278, 2.249176, -3.294777)
+
+[node name="arrowSign25" parent="signs" index="18" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.022077195, 0, -0.4294329, 0, 0.43000013, 0, 0.4294329, 0, 0.022077195, -10.530108, 2.249175, 19.537964)
+
+[node name="arrowSign26" parent="signs" index="19" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.4267481, 0, -0.052783635, 0, 0.43000016, 0, 0.052783635, 0, -0.4267481, -29.085087, 2.2491753, 18.668571)
+
+[node name="arrowSign27" parent="signs" index="20" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.018231556, 0, -0.42961335, 0, 0.43000016, 0, 0.42961335, 0, -0.018231556, -26.288229, 2.6561086, 19.347755)
+
+[node name="arrowSign23" parent="signs" index="21" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.040765364, 0, 0.4280633, 0, 0.43000013, 0, -0.4280633, 0, -0.040765364, 36.717216, 2.249175, 15.802698)
+
+[node name="arrowSign16" parent="signs" index="22" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.38694745, 0, -0.18754119, 0, 0.43000007, 0, 0.18754119, 0, 0.38694745, -2.3517156, 2.2285662, 42.910934)
+
+[node name="arrowSign14" parent="signs" index="23" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.14561495, 0, -0.40459403, 0, 0.43, 0, 0.40459403, 0, 0.14561495, -0.9471507, 2.228566, 19.441929)
+
+[node name="arrowSign18" parent="signs" index="24" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.4296396, 0, 0.017601587, 0, 0.43, 0, -0.017601587, 0, 0.4296396, 8.558916, 2.2285664, 19.193369)
+
+[node name="arrowSign19" parent="signs" index="25" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(0.4296396, 0, 0.017601587, 0, 0.43, 0, -0.017601587, 0, 0.4296396, 8.766748, 2.2285664, 15.994131)
+
+[node name="arrowSign12" parent="signs" index="26" instance=ExtResource("2_q3wgi")]
+transform = Transform3D(-0.4040165, 0, 0.14720972, 0, 0.43000007, 0, -0.14720972, 0, -0.4040165, 2.142516, 2.2285662, 1.0300058)
+
+[node name="Garage" parent="." index="12" instance=ExtResource("4_cw43w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43610764, 0, 3.2885103)
+
+[node name="Label3D" type="Label3D" parent="Garage" index="2"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35.730854, 2.6855397, -24.993477)
+text = "Garage"
+font_size = 94
+outline_size = 24
+
+[node name="Label3D2" type="Label3D" parent="Garage" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.42228, 1.6695681, 33.174892)
+text = "Garage"
+font_size = 94
+outline_size = 24

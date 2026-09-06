@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bfa4r2j1mwv2w"]
+
+[ext_resource type="Texture2D" uid="uid://bild8nhd4dtdp" path="res://assets/textures/player/player_blue.png" id="1_1ec4y"]
+
+[resource]
+albedo_texture = ExtResource("1_1ec4y")
+metallic_specular = 0.7
+roughness = 0.28

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfu5f2dgpsbxj"]
+
+[ext_resource type="Script" uid="uid://ddsh3rdxuqban" path="res://scripts/biggame/hsd_campus/ui/round_counter.gd" id="1_5a0ky"]
+
+[node name="round_counter" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_5a0ky")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.80167943, 0, 0.2674877, 1)

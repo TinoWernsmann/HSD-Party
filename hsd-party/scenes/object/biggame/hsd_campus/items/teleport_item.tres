@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://qt6ai7u7iccp"]
+
+[ext_resource type="Texture2D" uid="uid://cvyn86s774f1g" path="res://assets/sprites/biggame/hsd_campus/items/Teleporter.png" id="1_jxgfq"]
+[ext_resource type="Script" uid="uid://cshctyika70kb" path="res://scripts/biggame/hsd_campus/items/items.gd" id="1_u7c5g"]
+
+[resource]
+script = ExtResource("1_u7c5g")
+type = 5
+shop_price = 10
+item_name = "Teleporter"
+icon = ExtResource("1_jxgfq")
+description = "Dieser Teleporter wurde von BMTlern entwickelt. Teleporitere dich zu einem anderen Spieler."
+metadata/_custom_type_script = "uid://cshctyika70kb"

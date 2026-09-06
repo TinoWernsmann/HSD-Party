@@ -1,0 +1,33 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbwcw1d6vqqwb"]
+
+[ext_resource type="Script" uid="uid://v2yiqahhyf6e" path="res://scripts/biggame/hsd_campus/manager/game_manager.gd" id="1_f0o65"]
+[ext_resource type="PackedScene" uid="uid://baqpieta7ci5b" path="res://scenes/object/biggame/hsd_campus/manager/ui_manager.tscn" id="2_aajb5"]
+[ext_resource type="PackedScene" uid="uid://c6t67sifcwb70" path="res://scenes/object/biggame/hsd_campus/ui/player_panel.tscn" id="3_d0ocw"]
+[ext_resource type="Script" uid="uid://bmbw1r7y12gc8" path="res://scripts/biggame/hsd_campus/initiators/tile_initiator.gd" id="4_08e2r"]
+[ext_resource type="Script" uid="uid://b8hp2ll5k7rnv" path="res://scripts/biggame/hsd_campus/initiators/player_initiator.gd" id="5_xdpi2"]
+[ext_resource type="PackedScene" uid="uid://bvoa5cocpj8fi" path="res://scenes/object/biggame/hsd_campus/player/player.tscn" id="6_pjj8r"]
+[ext_resource type="Material" uid="uid://bfa4r2j1mwv2w" path="res://ressources/material/biggame/hsd_campus/player/player.tres" id="7_nsb74"]
+[ext_resource type="Script" uid="uid://dho0jbpoctsyc" path="res://scripts/biggame/hsd_campus/manager/turn_manager.gd" id="8_330el"]
+
+[node name="game_manager" type="Node3D" node_paths=PackedStringArray("ui_manager", "tile_init", "player_init", "turn_manager", "canvas_layer_to_hide")]
+script = ExtResource("1_f0o65")
+ui_manager = NodePath("UI_manager")
+tile_init = NodePath("tile_initiator")
+player_init = NodePath("player_initiator")
+turn_manager = NodePath("turn_manager")
+canvas_layer_to_hide = [null, null, null]
+
+[node name="UI_manager" parent="." instance=ExtResource("2_aajb5")]
+player_ui_scene = ExtResource("3_d0ocw")
+
+[node name="tile_initiator" type="Node3D" parent="."]
+script = ExtResource("4_08e2r")
+
+[node name="player_initiator" type="Node3D" parent="."]
+script = ExtResource("5_xdpi2")
+player_scene = ExtResource("6_pjj8r")
+offset = Array[Vector3]([Vector3(0.5, 0.2, 0.5), Vector3(-0.5, 0.2, 0.5), Vector3(0.5, 0.2, -0.5), Vector3(-0.5, 0.2, -0.5)])
+player_material = ExtResource("7_nsb74")
+
+[node name="turn_manager" type="Node3D" parent="."]
+script = ExtResource("8_330el")

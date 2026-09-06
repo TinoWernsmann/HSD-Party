@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://6d4p4ehaf6cy"]
+
+[ext_resource type="Texture2D" uid="uid://cvl5ca7aedmik" path="res://assets/sprites/biggame/hsd_campus/items/Mensa frass.png" id="1_5qm3i"]
+[ext_resource type="Script" uid="uid://cshctyika70kb" path="res://scripts/biggame/hsd_campus/items/items.gd" id="1_qbknw"]
+
+[resource]
+script = ExtResource("1_qbknw")
+shop_price = 10
+item_name = "Mensa Fraß"
+icon = ExtResource("1_5qm3i")
+description = "Lecker, lecker Mensa Essen für ein schnapper Preis! Nächster Wurf ist 8-10!"
+metadata/_custom_type_script = "uid://cshctyika70kb"

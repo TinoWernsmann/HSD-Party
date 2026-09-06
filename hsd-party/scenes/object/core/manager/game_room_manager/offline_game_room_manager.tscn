@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fsvc5cian48w"]
+
+[ext_resource type="Script" uid="uid://dvw75bufvtjeb" path="res://scripts/core/manager/game_room_manager/offline_game_room_manager.gd" id="1_dguy5"]
+
+[node name="OfflineGameRoomManager" type="Node"]
+script = ExtResource("1_dguy5")

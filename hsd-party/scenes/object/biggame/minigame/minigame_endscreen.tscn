@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://chv35m47f45ro"]
+
+[ext_resource type="Script" uid="uid://br2xiar6n4kcu" path="res://scripts/biggame/minigame/minigame_endscreen.gd" id="1_b2hmu"]
+[ext_resource type="PackedScene" uid="uid://beewicm6qybi4" path="res://scenes/object/biggame/hsd_campus/player/end_scene_player.tscn" id="1_newct"]
+[ext_resource type="Material" uid="uid://dbu2tly5x7vr5" path="res://ressources/material/white.tres" id="3_7qnmw"]
+
+[sub_resource type="Environment" id="Environment_newct"]
+background_mode = 1
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission = Color(0.039215688, 0, 0, 1)
+
+[node name="MinigameEndscreen" type="Node3D" node_paths=PackedStringArray("ffa_root_mode", "cylinder_container", "team_root_mode", "winner_team_cylinder", "looser_team_cylinder", "looser_label")]
+script = ExtResource("1_b2hmu")
+player_scene = ExtResource("1_newct")
+ffa_root_mode = NodePath("FFA")
+cylinder_container = NodePath("FFA/CSGCombiner3D")
+team_root_mode = NodePath("Team")
+winner_team_cylinder = NodePath("Team/CSGCombiner3D/CSGCylinder3D")
+looser_team_cylinder = NodePath("Team/CSGCombiner3D/CSGCylinder3D2")
+looser_label = NodePath("Team/Label3D2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_newct")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8745131, -0.36752856, 0.31646478, 0.48245117, -0.59237146, 0.645242, -0.049680084, 0.7169512, 0.695351, 0, 4.174737, 0)
+light_energy = 0.05
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.98759264, -0.15703776, 0, 0.15703776, 0.98759264, 0, 0.952, 2.749)
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003148675, -0.74204767, -0.98734164)
+size = Vector3(20, 2, 8)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FogVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9997864, -0.2472558, 0.9998901)
+light_energy = 0.1
+light_bake_mode = 1
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="FogVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00021350384, -0.2472558, 0.9998901)
+light_energy = 0.1
+light_bake_mode = 1
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="FogVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0002136, -0.2472558, 0.9998901)
+light_energy = 0.1
+light_bake_mode = 1
+
+[node name="Team" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Team"]
+material_override = ExtResource("3_7qnmw")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Team/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+material_override = ExtResource("3_7qnmw")
+height = 4.5
+sides = 32
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Team/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -2.5, -2)
+material_override = ExtResource("3_7qnmw")
+radius = 1.1
+height = 5.0
+sides = 32
+
+[node name="Label3D" type="Label3D" parent="Team"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.3)
+shaded = true
+modulate = Color(1, 1, 0, 1)
+text = "Sieger"
+font_size = 120
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Team/Label3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+light_color = Color(0.9411765, 0.9607843, 0, 1)
+light_energy = 10.0
+light_bake_mode = 1
+spot_range = 1.5
+spot_attenuation = 0.0
+spot_angle_attenuation = 3.0
+
+[node name="Label3D2" type="Label3D" parent="Team"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -2.3)
+shaded = true
+text = "Verlierer"
+font_size = 80
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Team/Label3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+light_color = Color(0.78431374, 0.78431374, 1, 1)
+light_bake_mode = 1
+spot_range = 1.5
+spot_attenuation = 0.0
+spot_angle_attenuation = 3.0
+
+[node name="FFA" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="FFA"]
+material_override = ExtResource("3_7qnmw")

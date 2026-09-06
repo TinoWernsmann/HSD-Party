@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://baqpieta7ci5b"]
+
+[ext_resource type="Script" uid="uid://bs1euyecjhett" path="res://scripts/biggame/hsd_campus/manager/ui_manager.gd" id="1_v8wfx"]
+
+[node name="UI_manager" type="Node3D"]
+script = ExtResource("1_v8wfx")

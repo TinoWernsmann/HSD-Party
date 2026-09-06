@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ccx2w7qhl13no"
+path.s3tc="res://.godot/imported/HsdFixed_ChatGPT Image Nov 17, 2025, 04_08_26 PM.png-903e841ed2aa094e75afc5152cd7e0cb.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "baca8bcf8c9cdae2d2684ca677cf878d"
+}
+
+[deps]
+
+source_file="res://assets/models/biggame/hsd_campus/map/HsdFixed_ChatGPT Image Nov 17, 2025, 04_08_26 PM.png"
+dest_files=["res://.godot/imported/HsdFixed_ChatGPT Image Nov 17, 2025, 04_08_26 PM.png-903e841ed2aa094e75afc5152cd7e0cb.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

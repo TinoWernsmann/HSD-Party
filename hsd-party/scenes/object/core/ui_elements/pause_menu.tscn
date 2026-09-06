@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0tw3xr3bd8pw"]
+
+[ext_resource type="Script" uid="uid://db27we6ocn5l0" path="res://scripts/core/controller/pause_menu_controller.gd" id="1_4tgj6"]
+[ext_resource type="Material" uid="uid://dnp1y0pwvawp8" path="res://ressources/material/shared/menu_blur_material.tres" id="2_4x1wo"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4tgj6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("2_4x1wo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.5
+offset_top = -61.0
+offset_right = 154.5
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackToGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Zurück zum Spiel"
+
+[node name="LeaveGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Spiel verlassen
+"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_top = 89.0
+offset_right = 123.0
+offset_bottom = 158.0
+grow_horizontal = 2
+theme_type_variation = &"HeaderMedium"
+text = "Pause"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/BackToGame" to="." method="_on_back_to_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/LeaveGame" to="." method="_on_leave_game_pressed"]

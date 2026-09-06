@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxkictcfcbjch"]
+
+[ext_resource type="Script" uid="uid://bk07h7j383tps" path="res://scripts/core/manager/main_manager/online_main_manager.gd" id="1_fj376"]
+[ext_resource type="PackedScene" uid="uid://dy3rmti8kgxa3" path="res://scenes/object/core/ui_elements/online_menu.tscn" id="2_i00aj"]
+[ext_resource type="PackedScene" uid="uid://o6b050jnyqk0" path="res://scenes/object/core/manager/game_room_manager/online_game_room_manager.tscn" id="3_6oqth"]
+
+[node name="OnlineMainManager" type="Node"]
+script = ExtResource("1_fj376")
+online_menu_scene = ExtResource("2_i00aj")
+online_game_room_manager_scene = ExtResource("3_6oqth")

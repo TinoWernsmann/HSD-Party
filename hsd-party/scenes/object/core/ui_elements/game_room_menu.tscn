@@ -1,0 +1,211 @@
+[gd_scene load_steps=8 format=3 uid="uid://0gfpacpqmshm"]
+
+[ext_resource type="Script" uid="uid://dfosgpvoa8n3o" path="res://scripts/core/controller/game_room_menu_controller.gd" id="1_u8cv0"]
+[ext_resource type="PackedScene" uid="uid://c7kst12u31vx6" path="res://scenes/object/core/ui_elements/biggame_item.tscn" id="2_u8cv0"]
+[ext_resource type="Texture2D" uid="uid://r4wav5t7846u" path="res://assets/sprites/ui/menu/menuScreenBlured.png" id="3_gsgwm"]
+[ext_resource type="Shader" uid="uid://b1n6toajjg3j4" path="res://ressources/shader/shared/blur_shader.gdshader" id="4_q7bq4"]
+[ext_resource type="PackedScene" uid="uid://b0oerbpuatv6y" path="res://scenes/object/core/ui_elements/menu_player_info_button.tscn" id="5_03y21"]
+[ext_resource type="PackedScene" uid="uid://prpiib3l7lf7" path="res://scenes/object/core/ui_elements/player_settings.tscn" id="6_tok8f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0yd1a"]
+shader = ExtResource("4_q7bq4")
+shader_parameter/amount = 1.0000000475
+
+[node name="BiggameSelectionMenu" type="Control" node_paths=PackedStringArray("online_information", "room_number", "host", "settings_container", "biggame_selection_container", "back", "player_settings_panel", "player_settings", "player_info_buttons")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u8cv0")
+biggame_item_scene = ExtResource("2_u8cv0")
+online_information = NodePath("VBoxContainer/TopBar/OnlineInformation/HBoxContainer")
+room_number = NodePath("VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer/RoomNumber")
+host = NodePath("VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer/Host")
+settings_container = NodePath("VBoxContainer/MainContent/SettingsContainer")
+biggame_selection_container = NodePath("VBoxContainer/MainContent/ScrollContainer/BiggameSelectionContainer")
+back = NodePath("VBoxContainer/BottomBar/HBoxContainer/Back")
+player_settings_panel = NodePath("PlayerSettingsClickBlocker")
+player_settings = NodePath("PlayerSettingsClickBlocker/PlayerSettings")
+player_info_buttons = [NodePath("VBoxContainer/TopBar/MarginContainer2/PlayerSlots/AspectRatioContainer/MenuPlayerInfoButton4"), NodePath("VBoxContainer/TopBar/MarginContainer2/PlayerSlots/AspectRatioContainer2/MenuPlayerInfoButton4"), NodePath("VBoxContainer/TopBar/MarginContainer2/PlayerSlots/AspectRatioContainer3/MenuPlayerInfoButton4"), NodePath("VBoxContainer/TopBar/MarginContainer2/PlayerSlots/AspectRatioContainer4/MenuPlayerInfoButton4")]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_gsgwm")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0yd1a")
+layout_mode = 0
+offset_top = 217.0
+offset_right = 1920.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="PlayerSlots" type="HBoxContainer" parent="VBoxContainer/TopBar/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/TopBar/MarginContainer2/PlayerSlots"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuPlayerInfoButton4" parent="VBoxContainer/TopBar/MarginContainer2/PlayerSlots/AspectRatioContainer" instance=ExtResource("5_03y21")]
+layout_mode = 2
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="VBoxContainer/TopBar/MarginContainer2/PlayerSlots"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuPlayerInfoButton4" parent="VBoxContainer/TopBar/MarginContainer2/PlayerSlots/AspectRatioContainer2" instance=ExtResource("5_03y21")]
+layout_mode = 2
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="VBoxContainer/TopBar/MarginContainer2/PlayerSlots"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuPlayerInfoButton4" parent="VBoxContainer/TopBar/MarginContainer2/PlayerSlots/AspectRatioContainer3" instance=ExtResource("5_03y21")]
+layout_mode = 2
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="VBoxContainer/TopBar/MarginContainer2/PlayerSlots"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuPlayerInfoButton4" parent="VBoxContainer/TopBar/MarginContainer2/PlayerSlots/AspectRatioContainer4" instance=ExtResource("5_03y21")]
+layout_mode = 2
+
+[node name="OnlineInformation" type="MarginContainer" parent="VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TopBar/OnlineInformation"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/TopBar/OnlineInformation/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+columns = 3
+
+[node name="RoomNumberLabel" type="Label" parent="VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Raum Nummer: "
+horizontal_alignment = 2
+
+[node name="RoomNumber" type="Label" parent="VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "456 986"
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Copy"
+
+[node name="HostLabel" type="Label" parent="VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Host:"
+horizontal_alignment = 2
+
+[node name="Host" type="Label" parent="VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "You"
+horizontal_alignment = 2
+
+[node name="Disconnect" type="Button" parent="VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Disconnect"
+
+[node name="MainContent" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MainContent"]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="BiggameSelectionContainer" type="HBoxContainer" parent="VBoxContainer/MainContent/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="SettingsContainer" type="PanelContainer" parent="VBoxContainer/MainContent"]
+layout_mode = 2
+
+[node name="BottomBar" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BottomBar"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="VBoxContainer/BottomBar/HBoxContainer"]
+layout_mode = 2
+text = "Zurück"
+
+[node name="PlayerSettingsClickBlocker" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="PlayerSettingsClickBlocker"]
+copy_mode = 2
+rect = Rect2(0, 0, 1920, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="PlayerSettingsClickBlocker"]
+material = SubResource("ShaderMaterial_0yd1a")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerSettings" parent="PlayerSettingsClickBlocker" instance=ExtResource("6_tok8f")]
+layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TopBar/OnlineInformation/HBoxContainer/GridContainer/Disconnect" to="." method="_on_disconnect_pressed"]
+[connection signal="pressed" from="VBoxContainer/BottomBar/HBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7kst12u31vx6"]
+
+[ext_resource type="Script" uid="uid://bb5w6niqhikmf" path="res://scripts/core/biggame_item.gd" id="1_k7ecq"]
+[ext_resource type="Texture2D" uid="uid://bdqr7abw2eghb" path="res://assets/sprites/ui/cpu_allowed.png" id="2_co8fg"]
+[ext_resource type="Texture2D" uid="uid://bl5n2p8oy5fx0" path="res://assets/sprites/ui/cpu_not_allowed.png" id="2_i4f3l"]
+
+[node name="BiggameItem" type="Button" node_paths=PackedStringArray("player_count_label", "ai_rect")]
+custom_minimum_size = Vector2(600, 500)
+offset_right = 600.0
+offset_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Campus-Party"
+script = ExtResource("1_k7ecq")
+ai_not_allowed = ExtResource("2_i4f3l")
+ai_allowed = ExtResource("2_co8fg")
+player_count_label = NodePath("MarginContainer/HBoxContainer/player_number")
+ai_rect = NodePath("MarginContainer/HBoxContainer/TextureRect")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -115.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Spieleranzal:"
+
+[node name="player_number" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "1 - 4"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+texture = ExtResource("2_co8fg")
+expand_mode = 3
+stretch_mode = 4
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

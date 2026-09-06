@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dv8adqpl46o0i"]
+
+[ext_resource type="Texture2D" uid="uid://cj4tcgpq5dp8y" path="res://assets/textures/biggame/hsd_campus/tiles/ShopTileAlbedo.png" id="1_5ggqt"]
+[ext_resource type="Texture2D" uid="uid://uwej3y1oop82" path="res://assets/textures/biggame/hsd_campus/tiles/ShopTileEmission.png" id="2_oxs2t"]
+[ext_resource type="Texture2D" uid="uid://bktmlcr84dtbg" path="res://assets/textures/biggame/hsd_campus/tiles/TileMetallic.png" id="3_i3ssj"]
+[ext_resource type="Texture2D" uid="uid://cwnkyhsmhpc3e" path="res://assets/textures/biggame/hsd_campus/tiles/TileRoughness.png" id="4_l640v"]
+
+[resource]
+albedo_texture = ExtResource("1_5ggqt")
+metallic = 1.0
+metallic_texture = ExtResource("3_i3ssj")
+roughness_texture = ExtResource("4_l640v")
+emission_enabled = true
+emission_texture = ExtResource("2_oxs2t")
