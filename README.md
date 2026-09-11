@@ -1,108 +1,108 @@
 # HSD-Party
 [![Made with Godot](https://img.shields.io/badge/Made%20with-Godot-478CBF?style=flat&logo=godot%20engine&logoColor=white)](https://godotengine.org)
 
-HSD-Party ist eine digitale 3D-Brettspiel- und Minispielsammlung, entwickelt mit der Godot Engine 4.
+HSD-Party is a digital 3D board game and minigame collection developed with Godot Engine 4.
 
 ---
 
 ## Board Gameplay Logic (HSD-Campus)
 
-Das Hauptbrettspiel (**HSD-Campus**) folgt einem rundenbasierten Brettspielprinzip für bis zu 4 Spieler. Das Ziel der Spieler ist es, über mehrere Runden hinweg durch Würfelwürfe, strategischen Item-Einsatz und Feldinteraktionen die meisten **Sterne (Bücher)** sowie Münzen zu sammeln.
+The main board game (**HSD-Campus**) follows a turn-based board game mechanic for up to 4 players. The players' objective is to collect the most **stars (books)** and coins across multiple rounds through dice rolls, strategic item usage, and tile interactions.
 
 ---
 
 ### 1. Board Architecture & Core Systems
 
-Das Spielbrett wird zentral über mehrere dedizierte Manager gesteuert:
+The game board is controlled centrally by several dedicated managers:
 
 * **`BiggameHSDCampus_GameManager`**:
-  * Fungiert als zentraler Koordinator des Spielbretts.
-  * Verwaltet die Spieler-Instanzen (`players`), den Kamerazugriff, die UI-Steuerung und Schnittstellen zu allen Sub-Managern.
-  * Empfängt und verarbeitet globale Signale für Münztransaktionen, Stern-Käufe, Item-Effekte und Rundenwechsel.
+  * Acts as the central coordinator of the game board.
+  * Manages player instances (`players`), camera access, UI controls, and interfaces to all sub-managers.
+  * Receives and processes global signals for coin transactions, star purchases, item effects, and round changes.
 * **`BiggameHSDCampus_BoardLogic`**:
-  * Sucht beim Spielstart automatisch alle Knoten der Gruppe `"Tile"` und speichert sie in einem zusammenhängenden Array.
-  * Verknüpft die Felder bidirektional als doppelt verkettete Liste (`current.last_tile = prev` und `current.next_tile = next`), sodass Spieler nahtlos über das Feld vor- und zurückbewegt werden können.
+  * Automatically finds all nodes in the `"Tile"` group at game start and stores them in a contiguous array.
+  * Links tiles bidirectionally as a doubly linked list (`current.last_tile = prev` and `current.next_tile = next`), allowing players to move seamlessly forward and backward across the board.
 * **`BiggameHSDCampus_PathManager`**:
-  * Verwaltet alternative Pfade und Verzweigungen auf dem Campus.
-  * Verknüpft registrierte Pfadabschnitte mit entsprechenden Vorgänger- und Nachfolgerfeldern.
+  * Manages alternative paths and branches across the campus.
+  * Links registered path segments with their respective predecessor and successor tiles.
 * **`BiggameHSDCampus_TurnManager`**:
-  * Steuert die Zugreihenfolge (Spieler 0 bis Spieler N-1).
-  * Verwaltet Kamera- und UI-Überblendungen beim Spielerwechsel.
-  * Erhöht nach Abschluss des letzten Spielerzuges den Rundenzähler (`round_counter`) und leitet das Zwischenrunden-Minispiel bzw. das Spielende ein.
+  * Controls turn order (Player 0 to Player N-1).
+  * Manages camera and UI transitions when switching players.
+  * Increments the round counter (`round_counter`) after the last player's turn finishes and initiates the mid-round minigame or the end of the game.
 * **`BiggameHSDCampus_MoveManager`**:
-  * Jedem Spieler als Subknoten zugeordnet.
-  * Baut Bewegungspfade auf (`moving_tiles`), verwaltet frühzeitige Haltepunkte (`is_stopping`) und speichert verbleibende Schritte (`rest_move`).
-  * Führt schrittweise Bewegungstraversierungen und Rückwärtsbewegungen aus.
+  * Assigned to each player as a subnode.
+  * Builds movement paths (`moving_tiles`), handles early stopping points (`is_stopping`), and stores remaining steps (`rest_move`).
+  * Executes step-by-step movement traversals and backward movements.
 * **`BiggameHSDCampus_StarManager`**:
-  * Platziert dynamisch den Stern auf einem zufälligen, zugelassenen Feld.
-  * Inszeniert nach jedem Sternkauf eine Kamera-Sequenz zur neuen Sternposition.
+  * Dynamically places the star on a random, eligible tile.
+  * Orchestrates a camera sequence to the new star location after each star purchase.
 * **`BiggameHSDCampus_InventoryManager`**:
-  * Verwaltet bis zu 4 Items im Inventar des jeweiligen Spielers.
-  * Behandelt das Durchblättern, Aktivieren und Abbrechen von Items.
+  * Manages up to 4 items in each player's inventory.
+  * Handles browsing, activating, and canceling items.
 * **`BiggameHSDCampus_QuestionManager`**:
-  * Verwaltet einen Fragenkatalog aus Informatik-, Programmier- und Godot-Themen für Quiz-Felder und stellt sicher, dass sich die zuletzt gestellte Frage nicht unmittelbar wiederholt.
+  * Manages a catalog of questions covering computer science, programming, and Godot topics for quiz tiles, ensuring that the most recently asked question is not immediately repeated.
 
 ---
 
 ### 2. Turn Cycle & Player States
 
-Jeder Spieler durchläuft eine strikte Zustandsmaschine (`BiggameHSDCampus_Player.States`):
+Each player goes through a strict state machine (`BiggameHSDCampus_Player.States`):
 
-| State | Beschreibung |
+| State | Description |
 | :--- | :--- |
-| **`IDLE`** | Der Spieler ist am Zug und wartet auf Eingaben (Würfeln mit Button 1, Item-Menü mit Button 2 oder Free Cam mit Button 3). |
-| **`MOVING`** | Der Spieler befindet sich in der Bewegung oder Sprunganimation über die Felder. |
-| **`CHOOSING_ITEM`** | Der Spieler navigiert durch sein Inventar, um ein Item auszuwählen. |
-| **`USING_ITEM`** | Das gewählte Item wird ausgeführt (z. B. Zielauswahl für Diebstahl oder Teleport). |
-| **`FREE_CAM`** | Die Spielfigur pausiert, während der Spieler die Kamera frei über das Spielfeld steuert. |
-| **`ON_SPLIT_TILE`** | Der Spieler steht an einer Weggabelung und wählt eine Richtung. |
-| **`IN_MINIGAME`** | Board-Zustand während der Minispielphase pausiert. |
+| **`IDLE`** | It is the player's turn, waiting for input (dice roll with Button 1, item menu with Button 2, or Free Cam with Button 3). |
+| **`MOVING`** | The player is moving or performing the jump animation across the tiles. |
+| **`CHOOSING_ITEM`** | The player is navigating through their inventory to select an item. |
+| **`USING_ITEM`** | The chosen item is being executed (e.g., target selection for theft or teleportation). |
+| **`FREE_CAM`** | The player character pauses while the player freely controls the camera across the board. |
+| **`ON_SPLIT_TILE`** | The player is standing at a path fork and choosing a direction. |
+| **`IN_MINIGAME`** | Board state paused during the minigame phase. |
 
-#### Ablauf eines Spielzuges:
-1. **Rundenbeginn**: Der `TurnManager` aktiviert den aktuellen Spieler, richtet die Kamera aus und blendet Steuerungshinweise ein.
-2. **Aktionsphase**:
-   * Der Spieler kann mit **Button 2** sein Inventar öffnen, durchblättern und mit **Button 1** ein Item aktivieren (oder mit Button 3 abbrechen).
-   * Der Spieler kann mit **Button 3** jederzeit die freie Kamera aktivieren, um das Spielfeld zu inspizieren.
-   * Mit **Button 1** löst der Spieler den Würfelwurf aus.
-3. **Würfelmechanik (`BiggameHSDCampus_Dice`)**:
-   * Der Spieler führt einen Sprung in Richtung des über ihm schwebenden 3D-Würfels aus.
-   * Der Würfel rotiert physikalisch/animiert und generiert eine Zufallszahl (Standard: 1 bis 10). Bei Ergebnissen > 6 werden dynamisch spezielle Texturen auf den Mesh-Oberflächen gerendert.
-   * Der Würfelwert wird im UI angezeigt und bei jedem Schritt dekrementiert.
-4. **Feldbewegung & Trajektorie**:
-   * Die Spielfigur dreht sich in Laufrichtung und bewegt sich via Tweening Feld für Feld vorwärts.
-   * Bei jedem Feld wird ein Passiersound abgespielt und die Restschrittanzeige aktualisiert.
-   * Trifft der Spieler unterwegs auf ein **Stopp-Feld** (Gabelung, Stern oder Teleporter), bricht die Pfadgenerierung sofort ab, und der Restwert wird zwischengespeichert.
-5. **Feld-Aktion (`do_tile_action`)**:
-   * Erreicht der Spieler sein Zielfeld (oder ein Stopp-Feld), wird die feldspezifische Logik ausgeführt.
-   * Bei Gabelungen (`SplitTile`) oder Teleportern (`Teleport_Tile`) wird nach der Richtungsentscheidung bzw. dem Portalübergang die Restbewegung fortgesetzt, sofern noch Schritte übrig sind.
-6. **Zugende**: Sobald alle Aktionen und Restbewegungen abgeschlossen sind, ruft die Spielfigur `disable_turn()` auf, und der nächste Spieler wird aktiviert.
-7. **Rundenabschluss & Siegbedingung**:
-   * Haben alle Spieler ihren Zug beendet, wird die Minispiel-Zwischenrunde gestartet (Münzbelohnungen: 1. Platz = 10, 2. Platz = 5, 3. Platz = 3, 4. Platz = 1 Münze).
-   * Sobald `current_round >= max_rounds` erreicht ist, endet das Spiel.
-   * Die Endplatzierung erfolgt primär nach gesammelten **Sternen** und sekundär nach **Münzen** als Tie-Breaker.
+#### Turn Progression:
+1. **Turn Start**: The `TurnManager` activates the current player, aligns the camera, and displays control hints.
+2. **Action Phase**:
+   * The player can open their inventory with **Button 2**, browse through items, and activate an item with **Button 1** (or cancel with Button 3).
+   * The player can activate the free camera with **Button 3** at any time to inspect the board.
+   * The player triggers the dice roll with **Button 1**.
+3. **Dice Mechanic (`BiggameHSDCampus_Dice`)**:
+   * The player performs a jump towards the 3D die floating above them.
+   * The die rotates physically/animated and generates a random number (default: 1 to 10). For results > 6, special textures are dynamically rendered on the mesh surfaces.
+   * The rolled value is displayed in the UI and decremented with each step.
+4. **Tile Movement & Trajectory**:
+   * The player character turns towards the direction of movement and moves forward tile by tile via tweening.
+   * At each tile, a pass-through sound plays, and the remaining step counter is updated.
+   * If the player encounters a **stopping tile** along the way (fork, star, or teleporter), path generation halts immediately, and the remaining steps are cached.
+5. **Tile Action (`do_tile_action`)**:
+   * When the player reaches their target tile (or a stopping tile), the tile-specific logic is executed.
+   * At forks (`SplitTile`) or teleporters (`Teleport_Tile`), after the directional choice or portal transition, remaining movement continues if steps are still left.
+6. **Turn End**: Once all actions and remaining movements are completed, the player character calls `disable_turn()`, and the next player is activated.
+7. **Round Completion & Win Condition**:
+   * Once all players have completed their turns, the minigame intermission begins (coin rewards: 1st place = 10, 2nd place = 5, 3rd place = 3, 4th place = 1 coin).
+   * As soon as `current_round >= max_rounds` is reached, the game ends.
+   * The final ranking is determined primarily by collected **stars** and secondarily by **coins** as a tie-breaker.
 
 ---
 
 ### 3. Tile System Architecture
 
-Alle Felder des Campus basieren auf der Basisklasse `BiggameHSDCampus_Tile` (`Node3D`). Sie definieren Eigenschaften zur Vernetzung, Kameraausrichtung, Tonwiedergabe und Aktionsausführung.
+All tiles on the campus are based on the base class `BiggameHSDCampus_Tile` (`Node3D`). They define properties for networking/linking, camera alignment, sound playback, and action execution.
 
-#### Stopp-Mechanik (`is_stopping`):
-Ein Feld gilt als Stopp-Feld, wenn:
+#### Stopping Mechanic (`is_stopping`):
+A tile is considered a stopping tile if:
 ```gdscript
 func is_stopping() -> bool:
     return is_split or is_star or is_teleport
 ```
-Wenn der `MoveManager` einen Pfad für N Würfelaugen berechnet, bricht die Schleife beim ersten Stopp-Feld ab. Die restlichen Schritte werden in `rest_move` festgehalten, damit die Bewegung nach der Interaktion (z. B. Weggabelung) wieder aufgenommen werden kann.
+When the `MoveManager` calculates a path for N rolled steps, the loop breaks at the first stopping tile. The remaining steps are stored in `rest_move` so that movement can resume after the interaction (e.g., path fork).
 
-#### Kamera-Winkel pro Feld (`try_switch_cam`):
-Jedes Feld kann über die Export-Variablen `new_cam_x` und `new_cam_z` eine modifizierte Kameraperspektive vorgeben. Beim Betreten des Feldes wechselt die Kamera sanft ihren Betrachtungswinkel, um Kurven und Gebäude optimal einzufangen.
+#### Camera Angle per Tile (`try_switch_cam`):
+Each tile can define a modified camera perspective via the export variables `new_cam_x` and `new_cam_z`. Upon stepping onto the tile, the camera smoothly transitions its viewing angle to optimally capture corners and buildings.
 
 ---
 
 ### 4. Diagram: Tile System & Resolution Flow
 
-Das folgende Mermaid-Diagramm visualisiert die Vererbungshierarchie der Felder sowie den logischen Ablauf bei Bewegung, Stopp-Prüfung und Feldinteraktion:
+The following Mermaid diagram visualizes the inheritance hierarchy of tiles as well as the logical flow during movement, stop checks, and tile interaction:
 
 ```mermaid
 flowchart TD
@@ -158,121 +158,121 @@ flowchart TD
 
 ---
 
-### 5. Feldtypen im Detail
+### 5. Tile Types in Detail
 
-#### 1. Standard-Feld (`BiggameHSDCampus_Tile`)
-* **Verhalten**: Landet ein Spieler auf diesem Feld und liegt kein Stern auf, erhält er **+5 Münzen**. Nach einer kurzen Pause (1.25s) endet der Zug.
-* **Passieren**: Spielt den regulären Schritt-Sound ab.
+#### 1. Standard Tile (`BiggameHSDCampus_Tile`)
+* **Behavior**: If a player lands on this tile and there is no active star on it, they receive **+5 coins**. After a brief pause (1.25s), the turn ends.
+* **Pass-through**: Plays the standard walking/stepping sound.
 
-#### 2. Negativ-Feld (`Negative_Tile`)
-Besitzt zwei über `is_coin_remove` konfigurierbare Modi:
-* **Münzabzug (`is_coin_remove = true`)**: Zieht dem Spieler zwischen **5 und 15 Münzen** ab.
-* **Rückwurf (`is_coin_remove = false`)**: Wirft den Spieler um **3 bis 6 Felder zurück** (`move_player_back`). Die Figur läuft die verkettete Liste rückwärts über `last_tile` ab.
+#### 2. Negative Tile (`Negative_Tile`)
+Features two modes configurable via `is_coin_remove`:
+* **Coin Drain (`is_coin_remove = true`)**: Deducts between **5 and 15 coins** from the player.
+* **Knockback (`is_coin_remove = false`)**: Knocks the player back by **3 to 6 tiles** (`move_player_back`). The character traverses the linked list backwards via `last_tile`.
 
-#### 3. Event-Feld (`Event_Tile`)
-Wählt bei Aktivierung zufällig eines von vier Ereignissen aus:
-* `COINSPLUS`: Schenkt dem Spieler **5 bis 20 Münzen**.
-* `COINSMINUS`: Zieht dem Spieler **5 bis 20 Münzen** ab.
-* `FIELDPLUS`: Lässt die Figur **1 bis 5 zusätzliche Felder vorwärts** laufen.
-* `FIELDMINUS`: Wirft die Figur **1 bis 5 Felder rückwärts**.
-* Nach der Ausführung wird für den nächsten Besucher ein neues Event ausgewürfelt.
+#### 3. Event Tile (`Event_Tile`)
+Randomly selects one of four events upon activation:
+* `COINSPLUS`: Grants the player **5 to 20 coins**.
+* `COINSMINUS`: Deducts **5 to 20 coins** from the player.
+* `FIELDPLUS`: Causes the character to advance **1 to 5 additional tiles**.
+* `FIELDMINUS`: Knocks the character **1 to 5 tiles backward**.
+* After execution, a new event is rolled for the next visitor.
 
-#### 4. Quiz-Feld (`Quiz_Tile`)
-* Blendet andere Spieler aus, positioniert den aktiven Spieler vor der Quiz-Kamera und startet eine Kamera-Animation.
-* Lädt über den `QuestionManager` eine zufällige Multiple-Choice-Frage mit 4 Antwortmöglichkeiten aus der Informatik und Spieleentwicklung.
-* Der Spieler wählt mit den Controller-Tasten 1 bis 4 seine Antwort:
-  * **Richtig**: +10 Münzen, Freuden-Animation (`"happy"`).
-  * **Falsch**: -5 Münzen, Trauer-Animation (`"sad"`).
-* Nach Beantwortung schwenkt die Kamera zurück und stellt die Sichtbarkeit aller Spieler wieder her.
+#### 4. Quiz Tile (`Quiz_Tile`)
+* Hides other players, positions the active player in front of the quiz camera, and starts a camera animation.
+* Loads a random multiple-choice question with 4 options covering computer science and game development via `QuestionManager`.
+* The player selects their answer using controller buttons 1 through 4:
+  * **Correct**: +10 coins, celebration animation (`"happy"`).
+  * **Incorrect**: -5 coins, disappointment animation (`"sad"`).
+* After answering, the camera pans back and restores visibility for all players.
 
-#### 5. Shop-Feld (`Shop_Tile`)
-* Überprüft, ob das Inventar des Spielers voll ist (maximal 4 Items). Wenn voll, wird der Shop sofort übersprungen.
-* Richtet die Kamera auf das Händler-Modell (`koch.tscn`) und öffnet das Shop-UI.
-* **Steuerung im Shop**:
-  * **Button 2**: Nächstes Item markieren.
-  * **Button 1**: Ausgewähltes Item kaufen (sofern genügend Münzen vorhanden sind).
-  * **Button 3**: Shop ohne Kauf verlassen.
-* Nach dem Kauf wird der Preis abgezogen, das Item im `InventoryManager` registriert und die Verlassen-Animation abgespielt.
+#### 5. Shop Tile (`Shop_Tile`)
+* Checks if the player's inventory is full (maximum of 4 items). If full, the shop is skipped immediately.
+* Aligns the camera to the merchant model (`koch.tscn`) and opens the shop UI.
+* **Shop Controls**:
+  * **Button 2**: Highlight next item.
+  * **Button 1**: Purchase selected item (if enough coins are available).
+  * **Button 3**: Exit shop without purchasing.
+* After purchase, the price is deducted, the item is registered in the `InventoryManager`, and the departure animation plays.
 
-#### 6. Spezial- / Zufalls-Shop (`Special_Shop_Tile`)
-* Erweitert das reguläre Shop-Feld.
-* Generiert bei jedem Betreten ein dynamisches Sortiment aus bis zu 4 zufällig gewählten Items aus einem übergeordneten Item-Pool (`available_item_pool`).
+#### 6. Special / Random Shop (`Special_Shop_Tile`)
+* Extends the regular shop tile.
+* Generates a dynamic assortment of up to 4 randomly chosen items from an overarching item pool (`available_item_pool`) upon every visit.
 
-#### 7. Weggabelung / Split-Feld (`SplitTile`)
-* Gilt als Stopp-Feld (`is_stopping = true`). Der Spieler hält sofort an, auch wenn noch Schritte übrig sind.
-* Instanziiert einen visuellen 3D-Pfeilindikator (`dot.png`) zwischen dem aktuellen Feld und den wählbaren Nachfolgefeldern (`path_options`).
-* Der Spieler wählt über die horizontale Achse (Analogstick/Steuerkreuz) den gewünschten Pfad aus und bestätigt mit **Button 1**.
-* Wurde der Pfad gewählt, setzt der Spieler seine Restbewegung (`rest_move`) entlang der neuen Strecke fort.
+#### 7. Fork / Split Tile (`SplitTile`)
+* Considered a stopping tile (`is_stopping = true`). The player stops immediately, even if steps remain.
+* Instantiates a visual 3D arrow indicator (`dot.png`) between the current tile and the selectable successor tiles (`path_options`).
+* The player selects the desired path via the horizontal axis (analog stick / D-pad) and confirms with **Button 1**.
+* Once the path is chosen, the player continues their remaining movement (`rest_move`) along the new route.
 
-#### 8. Teleporter-Feld (`Teleport_Tile`)
-* Gilt als Stopp-Feld (`is_stopping = true`).
-* Fest mit einem Ziel-Teleporter (`teleport_destination`) verknüpft.
-* Bewegt die Spielfigur via Tweening nach unten in das Einstiegsrohr (`teleport_down.wav`).
-* Führt eine Bildüberblendung durch, versetzt die Spielfigur an die Zielkoordinaten, passt den Kamerawinkel an und fährt die Figur wieder aus dem Zielrohr nach oben (`teleport_up.wav`).
-* Falls nach dem Betreten noch Schritte im Würfelwurf übrig waren, läuft die Figur vom Zielfeld aus weiter.
+#### 8. Teleporter Tile (`Teleport_Tile`)
+* Considered a stopping tile (`is_stopping = true`).
+* Fixedly paired with a destination teleporter (`teleport_destination`).
+* Moves the player character downward into the entry pipe via tweening (`teleport_down.wav`).
+* Performs a screen fade, relocates the character to the destination coordinates, adjusts the camera angle, and moves the character back up out of the exit pipe (`teleport_up.wav`).
+* If remaining steps were left from the dice roll upon entering, the character continues moving forward from the destination tile.
 
 ---
 
 ### 6. The Star System (`StarManager`)
 
-Das Sternsystem ist das primäre Ziel des Brettspiels:
-* **Sternmodell**: Wird im Spiel durch ein schwebendes, langsam rotierendes 3D-Buch (`BookR.glb`) symbolisiert.
-* **Positionierung**: Der `StarManager` wählt beim Spielstart und nach jedem Kauf ein zufälliges Feld auf dem Brett aus. Ausgeschlossen sind Split-Felder, Teleport-Felder und das Feld des vorherigen Sterns.
-* **Kosten & Kauf**:
-  * Der Kaufpreis beträgt **40 Münzen**.
-  * Jedes Feld mit aktivem Stern fungiert automatisch als Stopp-Feld (`is_stopping = true`).
-  * Hat der Spieler beim Erreichen mindestens 40 Münzen, werden die Münzen abgezogen, der Stern gutgeschrieben (`stars += 1`), und der Stern auf dem aktuellen Feld deaktiviert.
-  * Hat der Spieler nicht genügend Münzen, endet der Zug ohne Kauf.
-* **Kamera-Präsentation**: Nach jedem Sternkauf schwenkt die Hauptkamera für 4 Sekunden mit sanfter Überblendung zur neuen Sternposition auf dem Campus, bevor das Spiel fortgesetzt wird.
+The star system is the primary objective of the board game:
+* **Star Model**: Symbolized in-game by a floating, slowly rotating 3D book (`BookR.glb`).
+* **Placement**: The `StarManager` selects a random tile on the board at game start and after every purchase. Split tiles, teleport tiles, and the tile of the previous star are excluded.
+* **Cost & Purchase**:
+  * The purchase price is **40 coins**.
+  * Any tile with an active star automatically acts as a stopping tile (`is_stopping = true`).
+  * If the player has at least 40 coins upon reaching it, the coins are deducted, the star is credited (`stars += 1`), and the star on the current tile is deactivated.
+  * If the player does not have enough coins, the turn ends without a purchase.
+* **Camera Presentation**: After each star purchase, the main camera pans to the new star location on the campus for 4 seconds with a smooth blend before the game continues.
 
 ---
 
 ### 7. Items & Inventory
 
-Spieler können Items in Shops erwerben und vor ihrem Würfelwurf taktisch einsetzen:
+Players can purchase items in shops and use them tactically before rolling the dice:
 
-* **Inventargröße**: Maximal 4 Items pro Spieler.
-* **Inventar-Steuerung**:
-  * **Button 2 (im Idle)**: Inventar öffnen und durch Items rotieren.
-  * **Button 1**: Ausgewähltes Item bestätigen und aktivieren.
-  * **Button 3**: Item-Auswahl abbrechen und in den Idle-Zustand zurückkehren.
+* **Inventory Capacity**: Maximum of 4 items per player.
+* **Inventory Controls**:
+  * **Button 2 (in Idle)**: Open inventory and cycle through items.
+  * **Button 1**: Confirm and activate the selected item.
+  * **Button 3**: Cancel item selection and return to the Idle state.
 
-#### Verfügbare Items (`BiggameHSDCampus_Item`):
-1. **Großer Würfel (`BIG_DICE`)**:
-   * Ändert den Würfelmodus auf `Dice_Type.BIG`.
-   * Der nächste Würfelwurf liefert garantiert einen hohen Wert zwischen **8 und 10**.
-2. **Kleiner Würfel (`SMALL_DICE`)**:
-   * Ändert den Würfelmodus auf `Dice_Type.SMALL`.
-   * Der nächste Würfelwurf liefert einen präzisen niedrigen Wert zwischen **1 und 4**.
-3. **Münzdieb (`STEAL_COINS`)**:
-   * Öffnet ein Auswahlmenü für gegnerische Spieler (Tasten 1–4).
-   * Stiehlt dem ausgewählten Zielspieler eine festgelegte Menge an Münzen und überträgt sie dem Anwender.
-4. **Item-Dieb (`STEAL_ITEM`)**:
-   * Öffnet die Zielspielerauswahl.
-   * Stiehlt dem Zielspieler zufällig ein Item aus dessen Inventar und fügt es dem eigenen Inventar hinzu.
-5. **Spieler-Teleporter (`TELEPORT_TO_OTHER`)**:
-   * Teleportiert den Anwender direkt auf das Feld eines ausgewählten Mitspielers.
-   * Löst sofort die Aktion des Zielfeldes für den Anwender aus.
-6. **Stern-Teleporter (`TELEPORT_TO_STAR`)**:
-   * Teleportiert den Anwender augenblicklich direkt auf das aktuelle Stern-Feld.
-   * Triggert unmittelbar die Kaufabfrage für den Stern.
-7. **Duell-Item (`DUELL_ITEM`)**:
-   * Fordert einen gewählten Mitspieler zu einem Duell um Münzen heraus.
+#### Available Items (`BiggameHSDCampus_Item`):
+1. **Big Die (`BIG_DICE`)**:
+   * Changes the dice mode to `Dice_Type.BIG`.
+   * The next dice roll is guaranteed to yield a high value between **8 and 10**.
+2. **Small Die (`SMALL_DICE`)**:
+   * Changes the dice mode to `Dice_Type.SMALL`.
+   * The next dice roll yields a precise low value between **1 and 4**.
+3. **Coin Thief (`STEAL_COINS`)**:
+   * Opens a player selection menu for opponents (Buttons 1–4).
+   * Steals a set amount of coins from the targeted player and transfers them to the user.
+4. **Item Thief (`STEAL_ITEM`)**:
+   * Opens opponent target selection.
+   * Steals a random item from the target player's inventory and adds it to the user's inventory.
+5. **Player Teleporter (`TELEPORT_TO_OTHER`)**:
+   * Teleports the user directly onto the tile of a chosen fellow player.
+   * Immediately triggers the target tile's action for the user.
+6. **Star Teleporter (`TELEPORT_TO_STAR`)**:
+   * Instantly teleports the user directly onto the current star tile.
+   * Immediately triggers the purchase prompt for the star.
+7. **Duel Item (`DUELL_ITEM`)**:
+   * Challenges a chosen fellow player to a duel for coins.
 
 ---
 
 ### 8. Camera System & Free Cam Mode
 
-Die Spielfeldkamera (`BiggameHSDCampus_CameraLogic`) bietet dynamische Verfolgung und freie Erkundung:
+The board camera (`BiggameHSDCampus_CameraLogic`) provides dynamic tracking and free exploration:
 
-* **Folgemodus**: Verfolgt den aktiven Spieler mittels linearer Interpolation (`lerp`) und hält ihn über `look_at()` kontinuierlich im Fokus.
-* **Feldabhängige Winkel**: Passt über Signale der Einzelfelder automatisch X- und Z-Offsets an, um Kurven optimal einzufangen.
-* **Fokus & Zoom**: Zoomt bei Interaktionen (Shop, Quiz, Split-Felder) heran.
-* **Freie Kamera (`change_free_cam`)**:
-  * Kann vom aktiven Spieler während des Zustands `IDLE` oder `ON_SPLIT_TILE` mit **Button 3** ein- und ausgeschaltet werden.
-  * **Bewegung**: Schwenken über das Spielfeld entlang der X- und Z-Achsen mittels Analogstick oder Richtungstasten.
-  * **Zoom**: Hineinzoomen mit **Button 1**, Herauszoomen mit **Button 2**.
-  * Die Kamerabewegung ist durch Campus-Grenzen (`MAX_X`, `MAX_Z`, `MAX_ZOOM`, `MAX_OUT`) begrenzt.
-  * Ein erneuter Druck auf **Button 3** setzt die Kamera wieder zentriert auf den Spieler zurück.
+* **Follow Mode**: Follows the active player using linear interpolation (`lerp`) and continuously keeps them in focus via `look_at()`.
+* **Tile-Dependent Angles**: Automatically adjusts X and Z offsets via signals from individual tiles to capture curves and corners optimally.
+* **Focus & Zoom**: Zooms in during interactions (Shop, Quiz, Split tiles).
+* **Free Camera (`change_free_cam`)**:
+  * Can be toggled on and off by the active player during the `IDLE` or `ON_SPLIT_TILE` state with **Button 3**.
+  * **Movement**: Pan across the board along the X and Z axes using the analog stick or directional keys.
+  * **Zoom**: Zoom in with **Button 1**, zoom out with **Button 2**.
+  * Camera movement is clamped by campus boundaries (`MAX_X`, `MAX_Z`, `MAX_ZOOM`, `MAX_OUT`).
+  * Pressing **Button 3** again resets and centers the camera back on the player.
 
 ---
