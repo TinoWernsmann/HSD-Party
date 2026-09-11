@@ -21,7 +21,7 @@ The game board is controlled centrally by several dedicated managers:
   * Receives and processes global signals for coin transactions, star purchases, item effects, and round changes.
 * **`BiggameHSDCampus_BoardLogic`**:
   * Automatically finds all nodes in the `"Tile"` group at game start and stores them in a contiguous array.
-  * Links tiles bidirectionally as a doubly linked list (`current.last_tile = prev` and `current.next_tile = next`), allowing players to move seamlessly forward and backward across the board.
+  * Links tiles bidirectionally as a double linked list (`current.last_tile = prev` and `current.next_tile = next`), allowing players to move seamlessly forward and backward across the board.
 * **`BiggameHSDCampus_PathManager`**:
   * Manages alternative paths and branches across the campus.
   * Links registered path segments with their respective predecessor and successor tiles.
@@ -207,8 +207,8 @@ Randomly selects one of four events upon activation:
 #### 8. Teleporter Tile (`Teleport_Tile`)
 * Considered a stopping tile (`is_stopping = true`).
 * Fixedly paired with a destination teleporter (`teleport_destination`).
-* Moves the player character downward into the entry pipe via tweening (`teleport_down.wav`).
-* Performs a screen fade, relocates the character to the destination coordinates, adjusts the camera angle, and moves the character back up out of the exit pipe (`teleport_up.wav`).
+* Moves the player character downward into the entry pipe via tweening and sound (`teleport_down.wav`).
+* Performs a screen fade, relocates the character to the destination coordinates, adjusts the camera angle, and moves the character back up out of the exit pipe with corresponding sound(`teleport_up.wav`).
 * If remaining steps were left from the dice roll upon entering, the character continues moving forward from the destination tile.
 
 ---
